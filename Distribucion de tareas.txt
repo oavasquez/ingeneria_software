@@ -1,0 +1,24 @@
+Distribucion de tareas
+
+**Plantillas basicas:
+
+Ver Empleado (admin) 										Kristian
+Registrar Empleado (admin)									Karen 
+Ver asistencias (admin)										jonathan 
+aceptar y rechazar Permisos (jefe inmediato)				Nicole 
+Contador (puede ver el calculo del sueldo) (admin)			Jordan 
+Permiso (ver,crear y eliminar) (empleado)					Cesar
+
+
+**Base de datos 
+Aplicar mejoras base de datos 								Oscar y brizo
+
+
+**Crear consultas sql basicas apartir de la base con mejoras
+ejemplo
+(mostrar los datos de un empleado junto con su cargo, etc)
+
+Guillermo y Marjory kristian   
+
+#########Todo subirlo a github ordenamente en una carpte si no lo hay creanla######## 
+

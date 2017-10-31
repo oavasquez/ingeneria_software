@@ -1,0 +1,7 @@
+Planificacion 
+
+(1 de noviembre) Presentacion de las planillas que se usaran 
+(2 de noviembre) Muestra de la base de datos con sus mejoras
+(6 o 7 de noviembre) Muestra de funcionalidad de las vistas con la base de datos 
+
+(8 de noviembre) Entrega del software finalizado 
