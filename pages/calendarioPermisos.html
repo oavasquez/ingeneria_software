@@ -92,7 +92,7 @@
                     <a href="#">
                       <i class="fa fa-users text-aqua"></i> Aceptación de permiso de XXX empleado. Verificar y notificar.
                     </a>
-                  </li>                  
+                  </li>
                 </ul>
               </li>
               <li class="footer"><a href="#">Ver todos</a></li>
@@ -203,12 +203,12 @@
           </a>
           <ul class="treeview-menu">
             <li><a href=""><i class="fa fa-circle-o"></i> Buscar contrato</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Planilla del mes</a></li>            
-            <li><a href=""><i class="fa fa-circle-o"></i> Historial de deducciones</a></li>            
+            <li><a href=""><i class="fa fa-circle-o"></i> Planilla del mes</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Historial de deducciones</a></li>
             <li><a href=""><i class="fa fa-circle-o"></i> Historial de pagos</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Realizar Pago</a></li>            
+            <li><a href=""><i class="fa fa-circle-o"></i> Realizar Pago</a></li>
           </ul>
-        </li>        
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
@@ -225,7 +225,7 @@
             <li><a href=""><i class="fa fa-circle-o"></i> Por matrimonio</a></li>
             <li><a href=""><i class="fa fa-circle-o"></i> Por incapacidad médica</a></li>
             <li><a href=""><i class="fa fa-circle-o"></i> Por maternidad</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Estado de Solicitudes Existentes</a></li>            
+            <li><a href=""><i class="fa fa-circle-o"></i> Estado de Solicitudes Existentes</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -241,7 +241,7 @@
             <li><a href=""><i class="fa fa-circle-o"></i> Busqueda por empleado</a></li>
             <li><a href=""><i class="fa fa-circle-o"></i> Historial de empleados</a></li>
           </ul>
-        </li>      
+        </li>
         <li class="active">
           <a href="calendarioPermisos.html">
             <i class="fa fa-calendar"></i> <span>Monitoreo de permisos</span>
@@ -252,7 +252,7 @@
             <i class="fa fa-calendar"></i> <span>Monitoreo de vacaciones</span>
           </a>
         </li>
-        
+
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -337,6 +337,62 @@
           </div>
           <!-- /. box -->
         </div>
+        <div class="col-md-3 col-lg-3"></div>
+        <div class="col-md-9 col-lg-9">
+          <table class="table">
+            <thead style="background-color: #334; color: #fff">
+              <tr>
+                <th scope="col"><input type="checkbox"></th>
+                <th scope="col">Descripci&oacute;n</th>
+                <th scope="col">Fecha de inicio</th>
+                <th scope="col">Fecha de finalizaci&oacute;n</th>
+                <th scope="col">N&uacute;mero de d&iacute;as</th>
+                <th scope="col">Tipo de permiso</th>
+                <th scope="col">Empleado</th>
+                <th scope="col">Responsable</th>
+                <th scope="col">Estado de permiso</th>
+              </tr>
+            </thead>
+            <tbody style="background-color: #fff">
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>Permiso por Incapacidad</td>
+                <td>12/5/2017</td>
+                <td>13/5/2017</td>
+                <td>1</td>
+                <td>Enfermedad</td>
+                <td>Cesar Barahona</td>
+                <td>Miguel Sauceda</td>
+                <td>Aprobado</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>Permiso de ausencia</td>
+                <td>12/5/2017</td>
+                <td>16/5/2017</td>
+                <td>4</td>
+                <td>Por dia</td>
+                <td>Cesar Figueroa</td>
+                <td>Eduardo Gross</td>
+                <td>En revision</td>
+              </tr>
+              <tr>
+                <th scope="row"><input type="checkbox"></th>
+                <td>Permiso por Incapacidad</td>
+                <td>12/5/2017</td>
+                <td>13/5/2017</td>
+                <td>1</td>
+                <td>Enfermedad</td>
+                <td>Kristian Portillo</td>
+                <td>Karen Villalobos</td>
+                <td>Aprobado</td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-success">Guardar</button>
+          <button class="btn btn-info">Editar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -405,165 +461,167 @@
 <script src="../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- Page specific script -->
 <script>
-  $(function () {
-
-    /* initialize the external events
+$(function() {
+  /* initialize the external events
      -----------------------------------------------------------------*/
-    function init_events(ele) {
-      ele.each(function () {
+  function init_events(ele) {
+    ele.each(function() {
+      // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+      // it doesn't need to have a start or end
+      var eventObject = {
+        title: $.trim($(this).text()) // use the element's text as the event title
+      };
 
-        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-        // it doesn't need to have a start or end
-        var eventObject = {
-          title: $.trim($(this).text()) // use the element's text as the event title
-        }
+      // store the Event Object in the DOM element so we can get to it later
+      $(this).data('eventObject', eventObject);
 
-        // store the Event Object in the DOM element so we can get to it later
-        $(this).data('eventObject', eventObject)
+      // make the event draggable using jQuery UI
+      $(this).draggable({
+        zIndex: 1070,
+        revert: true, // will cause the event to go back to its
+        revertDuration: 0 //  original position after the drag
+      });
+    });
+  }
 
-        // make the event draggable using jQuery UI
-        $(this).draggable({
-          zIndex        : 1070,
-          revert        : true, // will cause the event to go back to its
-          revertDuration: 0  //  original position after the drag
-        })
+  init_events($('#external-events div.external-event'));
 
-      })
+  /* initialize the calendar
+     -----------------------------------------------------------------*/
+  //Date for the calendar events (dummy data)
+  var date = new Date();
+  var d = date.getDate(),
+    m = date.getMonth(),
+    y = date.getFullYear();
+  $('#calendar').fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    buttonText: {
+      today: 'today',
+      month: 'month',
+      week: 'week',
+      day: 'day'
+    },
+    //Random default events
+    events: [
+      {
+        title: 'Alejandro - por Matrimonio',
+        start: new Date(y, m, 1),
+        backgroundColor: '#f56954', //red
+        borderColor: '#f56954' //red
+      },
+      {
+        title: 'Karen - por Pase de Salida',
+        start: new Date(y, m, d - 5),
+        end: new Date(y, m, d - 2),
+        backgroundColor: '#f39c12', //yellow
+        borderColor: '#f39c12' //yellow
+      },
+      {
+        title: 'Cesar - por Incapacidad Méd',
+        start: new Date(y, m, d, 10, 30),
+        allDay: false,
+        backgroundColor: '#0073b7', //Blue
+        borderColor: '#0073b7' //Blue
+      },
+      {
+        title: 'Jordan - por Horario',
+        start: new Date(y, m, d, 12, 0),
+        end: new Date(y, m, d, 14, 0),
+        allDay: false,
+        backgroundColor: '#00c0ef', //Info (aqua)
+        borderColor: '#00c0ef' //Info (aqua)
+      },
+      {
+        title: 'Jonathan - por Día',
+        start: new Date(y, m, d + 1, 19, 0),
+        end: new Date(y, m, d + 1, 22, 30),
+        allDay: false,
+        backgroundColor: '#00a65a', //Success (green)
+        borderColor: '#00a65a' //Success (green)
+      },
+      {
+        title: 'Oscar - por Casaquero xD',
+        start: new Date(y, m, 28),
+        end: new Date(y, m, 29),
+        url: 'http://google.com/',
+        backgroundColor: '#3c8dbc', //Primary (light-blue)
+        borderColor: '#3c8dbc' //Primary (light-blue)
+      }
+    ],
+    editable: true,
+    droppable: true, // this allows things to be dropped onto the calendar !!!
+    drop: function(date, allDay) {
+      // this function is called when something is dropped
+
+      // retrieve the dropped element's stored Event Object
+      var originalEventObject = $(this).data('eventObject');
+
+      // we need to copy it, so that multiple events don't have a reference to the same object
+      var copiedEventObject = $.extend({}, originalEventObject);
+
+      // assign it the date that was reported
+      copiedEventObject.start = date;
+      copiedEventObject.allDay = allDay;
+      copiedEventObject.backgroundColor = $(this).css('background-color');
+      copiedEventObject.borderColor = $(this).css('border-color');
+
+      // render the event on the calendar
+      // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+      $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+      // is the "remove after drop" checkbox checked?
+      if ($('#drop-remove').is(':checked')) {
+        // if so, remove the element from the "Draggable Events" list
+        $(this).remove();
+      }
+    }
+  });
+
+  /* ADDING EVENTS */
+  var currColor = '#3c8dbc'; //Red by default
+  //Color chooser button
+  var colorChooser = $('#color-chooser-btn');
+  $('#color-chooser > li > a').click(function(e) {
+    e.preventDefault();
+    //Save color
+    currColor = $(this).css('color');
+    //Add color effect to button
+    $('#add-new-event').css({
+      'background-color': currColor,
+      'border-color': currColor
+    });
+  });
+  $('#add-new-event').click(function(e) {
+    e.preventDefault();
+    //Get value and make sure it is not null
+    var val = $('#new-event').val();
+    if (val.length == 0) {
+      return;
     }
 
-    init_events($('#external-events div.external-event'))
-
-    /* initialize the calendar
-     -----------------------------------------------------------------*/
-    //Date for the calendar events (dummy data)
-    var date = new Date()
-    var d    = date.getDate(),
-        m    = date.getMonth(),
-        y    = date.getFullYear()
-    $('#calendar').fullCalendar({
-      header    : {
-        left  : 'prev,next today',
-        center: 'title',
-        right : 'month,agendaWeek,agendaDay'
-      },
-      buttonText: {
-        today: 'today',
-        month: 'month',
-        week : 'week',
-        day  : 'day'
-      },
-      //Random default events
-      events    : [
-        {
-          title          : 'Alejandro - por Matrimonio',
-          start          : new Date(y, m, 1),
-          backgroundColor: '#f56954', //red
-          borderColor    : '#f56954' //red
-        },
-        {
-          title          : 'Karen - por Pase de Salida',
-          start          : new Date(y, m, d - 5),
-          end            : new Date(y, m, d - 2),
-          backgroundColor: '#f39c12', //yellow
-          borderColor    : '#f39c12' //yellow
-        },
-        {
-          title          : 'Cesar - por Incapacidad Méd',
-          start          : new Date(y, m, d, 10, 30),
-          allDay         : false,
-          backgroundColor: '#0073b7', //Blue
-          borderColor    : '#0073b7' //Blue
-        },
-        {
-          title          : 'Jordan - por Horario',
-          start          : new Date(y, m, d, 12, 0),
-          end            : new Date(y, m, d, 14, 0),
-          allDay         : false,
-          backgroundColor: '#00c0ef', //Info (aqua)
-          borderColor    : '#00c0ef' //Info (aqua)
-        },
-        {
-          title          : 'Jonathan - por Día',
-          start          : new Date(y, m, d + 1, 19, 0),
-          end            : new Date(y, m, d + 1, 22, 30),
-          allDay         : false,
-          backgroundColor: '#00a65a', //Success (green)
-          borderColor    : '#00a65a' //Success (green)
-        },
-        {
-          title          : 'Oscar - por Casaquero xD',
-          start          : new Date(y, m, 28),
-          end            : new Date(y, m, 29),
-          url            : 'http://google.com/',
-          backgroundColor: '#3c8dbc', //Primary (light-blue)
-          borderColor    : '#3c8dbc' //Primary (light-blue)
-        }
-      ],
-      editable  : true,
-      droppable : true, // this allows things to be dropped onto the calendar !!!
-      drop      : function (date, allDay) { // this function is called when something is dropped
-
-        // retrieve the dropped element's stored Event Object
-        var originalEventObject = $(this).data('eventObject')
-
-        // we need to copy it, so that multiple events don't have a reference to the same object
-        var copiedEventObject = $.extend({}, originalEventObject)
-
-        // assign it the date that was reported
-        copiedEventObject.start           = date
-        copiedEventObject.allDay          = allDay
-        copiedEventObject.backgroundColor = $(this).css('background-color')
-        copiedEventObject.borderColor     = $(this).css('border-color')
-
-        // render the event on the calendar
-        // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-        $('#calendar').fullCalendar('renderEvent', copiedEventObject, true)
-
-        // is the "remove after drop" checkbox checked?
-        if ($('#drop-remove').is(':checked')) {
-          // if so, remove the element from the "Draggable Events" list
-          $(this).remove()
-        }
-
-      }
-    })
-
-    /* ADDING EVENTS */
-    var currColor = '#3c8dbc' //Red by default
-    //Color chooser button
-    var colorChooser = $('#color-chooser-btn')
-    $('#color-chooser > li > a').click(function (e) {
-      e.preventDefault()
-      //Save color
-      currColor = $(this).css('color')
-      //Add color effect to button
-      $('#add-new-event').css({ 'background-color': currColor, 'border-color': currColor })
-    })
-    $('#add-new-event').click(function (e) {
-      e.preventDefault()
-      //Get value and make sure it is not null
-      var val = $('#new-event').val()
-      if (val.length == 0) {
-        return
-      }
-
-      //Create events
-      var event = $('<div />')
-      event.css({
+    //Create events
+    var event = $('<div />');
+    event
+      .css({
         'background-color': currColor,
-        'border-color'    : currColor,
-        'color'           : '#fff'
-      }).addClass('external-event')
-      event.html(val)
-      $('#external-events').prepend(event)
+        'border-color': currColor,
+        color: '#fff'
+      })
+      .addClass('external-event');
+    event.html(val);
+    $('#external-events').prepend(event);
 
-      //Add draggable funtionality
-      init_events(event)
+    //Add draggable funtionality
+    init_events(event);
 
-      //Remove event from text input
-      $('#new-event').val('')
-    })
-  })
+    //Remove event from text input
+    $('#new-event').val('');
+  });
+});
 </script>
 </body>
 </html>
