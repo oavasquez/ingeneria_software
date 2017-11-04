@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Proyecto IngSoftware</title>
    <!-- Tell the browser to be responsive to screen width -->
+   <meta name="csrf-token" content="{{ csrf_token() }}">
    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
    <!-- Bootstrap 3.3.7 -->
    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -212,9 +213,7 @@
           </ul>
         </li>
 
-        <div class="buscarEmpleado">
-          <img alt="Lucy" src="lucy.jpg" />
-        </div>
+        
 
         <li class="active treeview">
           <a href="#">
@@ -275,7 +274,7 @@
         <div class="col-md-9">
           <div class="&emsp;&emsp;BuscarEmpleado">
             <div class="shearEmployye-logo">
-              <a href="/BuscarEmpleado">BuscarEmpleado</a>
+              
             </div>
             <!-- /.Shearemployyed-logo -->
             <div class="ShearEmployyed-box-body">
@@ -283,10 +282,10 @@
               <form action=" " method="post">
                 <div class="form-group has-feedback">
                   <label for="" >&emsp;Ingrese Codigo del empleado&emsp;</label>
-                  <input type="text" class="ingresarCodigo" placeholder="Ingrese Codigo" width="80px">
+                  <input id="txtCodigoEmpleado" type="text" class="ingresarCodigo" placeholder="Ingrese Codigo" width="80px">
                 </div>
                 <div class="col-xs-6">
-                  <button type="button" class="btn btn-primary">BUSCAR</button>
+                  <button id ="btnBuscar" type="button" class="btn btn-primary">BUSCAR</button>
                 </div>
 
 
@@ -370,6 +369,8 @@
 <script src="../bower_components/moment/moment.js"></script>
 <script src="../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- Page specific script -->
+
+<script src="js/buscarEmpleado.js"></script>
 
 </body>
 </html>

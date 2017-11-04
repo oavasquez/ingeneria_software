@@ -81,7 +81,16 @@ Route::get('/registrarEmpleado', function () {
     return view('pages/register');
 });
 
+Route::get('/getDatosEmpleado', "EmpleadoController@EncontrarEmpleado");
 
+
+/*Route::get('/getDatosEmpleado', function () {
+    return response()->json([
+    'name' => 'Abigail',
+    'state' => 'CA'
+]);
+});
+*/
 
 
 
