@@ -54,10 +54,8 @@ DROP TABLE IF EXISTS `DeducionesEmpleadoBD`.`Empleado` ;
 
 CREATE TABLE IF NOT EXISTS `DeducionesEmpleadoBD`.`Empleado` (
   `idEmpleado` INT NOT NULL,
-  `p_nombre` VARCHAR(50) NOT NULL,
-  `s_nombre` VARCHAR(50) NULL,
-  `p_apellido` VARCHAR(50) NOT NULL,
-  `s_apellido` VARCHAR(50) NULL,
+  `nombre` VARCHAR(50) NOT NULL,
+  `apellido` VARCHAR(50) NULL,
   `identidad` VARCHAR(45) NOT NULL,
   `genero` VARCHAR(20) NOT NULL,
   `edad` INT NOT NULL,
@@ -66,11 +64,11 @@ CREATE TABLE IF NOT EXISTS `DeducionesEmpleadoBD`.`Empleado` (
   `correo` VARCHAR(45) NOT NULL,
   `direccion` VARCHAR(200) NULL,
   `cod_empleado` VARCHAR(45) NULL,
-  `Cargo_idCargo` INT NOT NULL,
+  `IdCargo` INT NOT NULL,
   `IdEncargado` INT NOT NULL,
   `idContrato` INT NOT NULL,
-  PRIMARY KEY (`idEmpleado`, `Cargo_idCargo`, `idContrato`),
-  INDEX `fk_Empleado_Cargo1_idx` (`Cargo_idCargo` ASC),
+  PRIMARY KEY (`idEmpleado`, `IdCargo`, `idContrato`),
+  INDEX `fk_Empleado_Cargo1_idx` (`IdCargo` ASC),
   INDEX `fk_Empleado_Empleado1_idx` (`IdEncargado` ASC),
   INDEX `fk_Empleado_Sueldos1_idx` (`idContrato` ASC),
   CONSTRAINT `fk_Empleado_Cargo1`

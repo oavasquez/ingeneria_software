@@ -289,19 +289,38 @@
                 </div>
 
 
-                  <div class="muestra_codigo">
-                      <br></br>
-                      <h4>&emsp;Codigo de Empleado:</h4>
-                      <h4>&emsp;Nombre de Empleado:</h4>
-                      <h4>&emsp;Cargo de Empleado:</h4>
-                      <h4>&emsp;Sueldo por cargo:</h4>
-                      <h4>&emsp;Hora de entrada:</h4>
-                      <h4
-                      >&emsp;Hora de Salida:</h4>
-                  </div>
 
               </form>
             </div>
+                  <div class="muestra_codigo">
+                    <table class="table">
+                     <tr>
+                        <th scope="col">Codigo de Empleado: </th>
+                        <td><label id="lblCodigoEmpleado"></label></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Nombre de Empleado: </th>
+                        <td><label id="lblNombre"></label></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Cargo de Empleado: </th>
+                        <td><label id="lblCargo"></label></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Sueldo por cargo: </th>
+                        <td><label id="lblSueldo"></label></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Hora de entrada: </th>
+                        <td><label id="lblHoraEntrada"></label></td>
+                    </tr>
+                    <tr>
+                        <th scope="col">hora de salida: </th>
+                        <td><label id="lblHoraSalida"></label></td>
+                    </tr>
+                      
+                    </table>
+                  </div>
         <!-- /.col -->
         </div>
       <!-- /.row -->

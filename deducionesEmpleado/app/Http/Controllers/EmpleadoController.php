@@ -16,11 +16,7 @@ class EmpleadoController extends Controller
 
         $codigoEmpleado=$resquest->codigo;
         $instaciaEmpleado= new Empleado;
-        $listaEmpleados=$instaciaEmpleado->mostrarEmpleado();
-    	
-    	
-
-    	
+        $listaEmpleados=$instaciaEmpleado->mostrarEmpleado($codigoEmpleado); 	
     	//$Empleados = DB::select("SELECT nombre FROM Empleado ");
                                     
                                 

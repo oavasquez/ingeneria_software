@@ -9,8 +9,12 @@ $("#btnBuscar").click(function(){
 		dataType:"json",
 		success:function(respuesta){
 			console.log(respuesta);
-
-			
+			$("#lblCodigoEmpleado").html(respuesta[0].codigo);
+			$("#lblNombre").html(respuesta[0].nombre);
+			$("#lblCargo").html(respuesta[0].cargo);
+			$("#lblSueldo").html(respuesta[0].sueldo);
+			$("#lblHoraEntrada").html(respuesta[0].horaentrada);
+			$("#lblHoraSalida").html(respuesta[0].horasalida);		
 
 		},
 		error:function(error){
