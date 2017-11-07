@@ -25,8 +25,7 @@ class Empleado extends Model
        						 on( A.IdCargo=B.IdCargo )
        						 Inner Join Contrato as C 
        						 on(A.IdContrato=C.IdContrato)
-       						 WHERE A.cod_empleado=?',
-       						 [$id]);
+       						 WHERE A.cod_empleado=?',[$id]);
 
         return $sql;
     }

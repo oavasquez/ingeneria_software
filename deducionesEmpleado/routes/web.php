@@ -19,6 +19,10 @@ Route::get('/BuscarEmpleado', function () {
     return view('/pages/BuscarEmpleado');
 });
 
+Route::get('/BuscarContrato',function (){
+    return view('/pages/BuscarContrato');
+});
+
 
 Route::get('/Contador', function () {
     return view('/pages/Contador');
@@ -83,7 +87,7 @@ Route::get('/registrarEmpleado', function () {
 
 Route::get('/getDatosEmpleado', "EmpleadoController@EncontrarEmpleado");
 
-
+Route::get('/getDatosContrato', "ContratoController@EncontrarContrato");
 /*Route::get('/getDatosEmpleado', function () {
     return response()->json([
     'name' => 'Abigail',

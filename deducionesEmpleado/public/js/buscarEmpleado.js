@@ -1,6 +1,7 @@
 $("#btnBuscar").click(function(){
 	var codigo=$("#txtCodigoEmpleado").val();
 	var parametro= "codigo="+codigo;
+	console.log(parametro);
 	
 	$.ajax({
 		url:"/getDatosEmpleado",
