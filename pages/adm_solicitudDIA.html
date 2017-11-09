@@ -263,35 +263,55 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
+        <div class="col-md-12">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Formulario para solicitud de permiso por dia</h3>
+            </div>
+            <div class="box-body">
+              <div class="form-group">
+                <label>Codigo empleado</label>
+                <input type="text" class="form-control" id="codigoEmpleado" placeholder="codEmpleado">
+              </div>                
+              <div class="form-group">
+                <label>Nombre Empleado solicitante</label>
+                <input type="text" class="form-control" id="nombreEmpleado" placeholder="Nombre de Empleado">
+              </div>
+              <div class="form-group">
+                  <label >Solicitar permiso para dia</label>
+                  <input type="date" id="fechaSolicitada" style="width:180px">
+              </div>
+              <div class="form-group">
+                <label>Tipo de permiso a solicitar</label>
+                <select class="form-control" disabled>
+                  <option>Permiso por dia</option>
+                  <option>option 2</option>
+                  <option>option 3</option>
+                  <option>option 4</option>
+                  <option>option 5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Describa el por qué de la solicitud</label>
+                <br>
+                <textarea class="form-control" id="descripcion" rows="3" placeholder="Rieguese en casaca..."></textarea>
+              </div>
 
-        <!-- /.col -->
-        <div class="col-md-9">
-          <h2>&emsp;&emsp;Solicitud de Permiso por dia</h2>
-          <form action="/my-handling-form-page" method="post">
-
-              <h4 align=center> Fecha: date("m/d/y");</h4>
-              <div class="datosEmpleado">
-                <label for="NombreEmpleado:">&emsp;Nombre de empleado:&emsp;</label>  <input type="text" name="nombre" >
-                <label for="CodigoEmpleado:">&emsp;&emsp;Codigo de empleado:&emsp;</label>  <input type="text" name="codigo" style="width:60px">
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Enviar solicitud</button>
+                <div class="row">
+                  <div class="col-sm-6">
+                      <button type="submit" class="btn btn-success btn-block btn-flat">Aprobar Permiso</button>                      
+                  </div>
+                  <div class="col-sm-6">
+                      <button type="submit" class="btn btn-danger btn-block btn-flat">Denegar permiso</button>                                          
+                  </div>
+                </div>
               </div>
-              <br></br>
-              <div class="permiso">
-                <label for="tipoPermiso" size=10 >&emsp;Tipo de permiso solicitado:&emsp;</label>  <input type="text" name="tipoPermiso" style="width:250px">
-                <br></br>
-                <label for="fecha1:" size=10 >&emsp;Fecha del Permiso:&emsp;</label>  <input type="date" name="fecha1">
-              </div>
-              <br></br>
-              <div>
-                  <label for="msg">&emsp;Descripsion de la solicitud:</label>
-                  <br></br>
-                  <label>&emsp;&emsp;&emsp;</label><textarea id="msg" style="width:500px"></textarea>
-              </div>
-              <br></br>
-              <div class="button">
-                  <label>&emsp;&emsp;&emsp;</label><button type="button" class="btn btn-primary" onclick="alert('Permiso Aprobado')">Aprobar</button>
-                  <label>&emsp;&emsp;&emsp;</label><button type="button" class="btn btn-danger" onclick="alert('Permiso Denegado')">Denegar</button>
-              </div>
-          </form>
+            </div>
+          </div>
+          <!-- /.box -->
+        </div>
       <!-- /.row -->
       </section>
     <!-- /.content -->
