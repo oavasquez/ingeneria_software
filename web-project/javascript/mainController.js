@@ -1,53 +1,42 @@
 var userLogged = {
     name: "AlejandroBrizo",
     typeUser: "Employee",
-    state: "LogOff"
+    state: "Logout"
 }
 
 $(document).ready(function() { 
-
     verifyAccount();
+});
 
-    $("#MenuPermisos li").click(function() {
-
-        if($(this).attr('id') == "solicitudPorDia"){
+$(document).on('click', '#MenuPermisos li', function() {
+    
+    if($(this).attr('id') == "solicitudPorDia"){
         loadPageSectionOnMain("#HomeContent", "SolicitudPorDia"); 
-        console.log("Hola");         
-        }
-        if($(this).attr('id') == "solicitudPorDuelo"){
+    }
+    if($(this).attr('id') == "solicitudPorDuelo"){
         loadPageSectionOnMain("#HomeContent", "SolicitudPorDuelo");          
-        }
-        if($(this).attr('id') == "solicitudPorIncapacidad"){
+    }
+    if($(this).attr('id') == "solicitudPorIncapacidad"){
         loadPageSectionOnMain("#HomeContent", "SolicitudExcusaMedica");          
-        }
-        if($(this).attr('id') == "solicitudPorMaternidad"){
+    }
+    if($(this).attr('id') == "solicitudPorMaternidad"){
         loadPageSectionOnMain("#HomeContent", "SolicitudPorMaternidad");          
-        }
-        if($(this).attr('id') == "solicitudPorMatrimonio"){
-            loadPageSectionOnMain("#HomeContent", "SolicitudPorMatrimonio");          
-        }
-        if($(this).attr('id') == "solicitudPorSalida"){
-            loadPageSectionOnMain("#HomeContent", "SolicitudPorSalida");          
-        }
-        if($(this).attr('id') == "solicitudesExistentes"){
-            loadPageSectionOnMain("#HomeContent", "SolicitudesExistentes");          
-        }
+    }
+    if($(this).attr('id') == "solicitudPorMatrimonio"){
+        loadPageSectionOnMain("#HomeContent", "SolicitudPorMatrimonio");          
+    }
+    if($(this).attr('id') == "solicitudPorSalida"){
+        loadPageSectionOnMain("#HomeContent", "SolicitudPorSalida");          
+    }
+    if($(this).attr('id') == "solicitudesExistentes"){
+        loadPageSectionOnMain("#HomeContent", "SolicitudesExistentes");          
+    }
 
-    });
-
- });
-
-$("#goToRegister").click(function() {
-    goToPage("Register");
 });
 
-$("#btn-SignIn").click(function() {
-    userLogged.state = "Logged";
-    goToPage("Home");
-});
 
 function verifyAccount(){
-    if(userLogged.state == "LogOff"){
+    if(userLogged.state == "Logout"){
         goToPage("Login");
     }else if(userLogged.state == "Logged"){
         goToPage("Home");
@@ -62,6 +51,8 @@ function goToPage(page){
             method:"POST",
             dataType: "json",
             success:function(response){
+                $("#body").addClass("hold-transition");                       
+                
                 if(page== "Register"){
                     $("#body").removeClass("login-page");   
                     $("#body").addClass("register-page");   
@@ -79,7 +70,7 @@ function goToPage(page){
                     $("#body").addClass("login-page");                       
                     $("#MasterContent").removeClass("wrapper");   
                 }
-                $("#MasterContent").html(response[0].content);
+                $("#MasterContent").html(response[0].content);             
             },
             error:function(error){
                 alert("No existe la ruta o el archivo. PENDIENTE.");
@@ -105,3 +96,27 @@ function loadPageSectionOnMain(inSection, page){
         }
     );
 }
+
+function goToLogin(){
+    goToPage("Login");
+}
+
+ //SOLUCION
+ $(document).on('click','#btn-SignIn',function(){
+    //alert($(this).attr("id"));
+    userLogged.state = "Logged";
+    goToPage("Home");
+});
+
+$(document).on('click','#goToRegister',function() {
+    goToPage("Register");
+});
+
+$(document).on('click','#btn-Register',function() {
+    alert("Se ha registrado con exito.");    
+    goToPage("Login");
+});
+
+$(document).on('click','#goBack-Register',function() {
+    goToPage("Login");
+});
