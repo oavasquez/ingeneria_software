@@ -3,13 +3,13 @@
 error_reporting(E_ALL);
 
 /**
- * modelo sin título - class.Asistencia.php
+ * modelo sin tï¿½tulo - class.Asistencia.php
  *
  * $Id$
  *
- * This file is part of modelo sin título.
+ * This file is part of modelo sin tï¿½tulo.
  *
- * Automatically generated on 24.10.2017, 11:53:54 with ArgoUML PHP module 
+ * Automatically generated on 24.10.2017, 11:53:54 with ArgoUML PHP module
  * (last revised $Date: 2010-01-12 20:14:42 +0100 (Tue, 12 Jan 2010) $)
  *
  * @author firstname and lastname of author, <author@example.org>
@@ -53,7 +53,7 @@ class Asistencia
             Planilla */
 {
     // --- ASSOCIATIONS ---
-    // generateAssociationEnd : 
+    // generateAssociationEnd :
 
     // --- ATTRIBUTES ---
 
@@ -91,13 +91,26 @@ class Asistencia
      * @param  fecha
      * @return integer
      */
-    public function getTiempoRetraso($fecha)
+    public function getTiempoRetraso($fecha,$HoraMarcadaEntrada,$idEmpleado)
     {
         $returnValue = null;
 
         // section -64--88-56-1--7e4e0547:15f4d348c90:-8000:0000000000000BCC begin
-        // section -64--88-56-1--7e4e0547:15f4d348c90:-8000:0000000000000BCC end
+        $EmpleadoAsistencia = DB::table('asistencias')->select('horaEntrada')
+                    ->where('idEmpleado',$idEmpleado)
+                    ->andWhere('fecha', $fecha)
+                    ->get();
 
+        $tiempoRetraso = $EmpleadoAsistencia->diff($horaEntrado);
+        if($tiempoRetraso = 0{
+            $tiempoRetraso = $returnValue;
+          echo 'El Empleado Marco a Tiempo';
+
+        }
+        else{
+          $tiempoRetraso = $returnValue;
+        }
+        // section -64--88-56-1--7e4e0547:15f4d348c90:-8000:0000000000000BCC end
         return $returnValue;
     }
 
