@@ -1,0 +1,37 @@
+<!-- login-box -->
+<div class="login-box" id="LoginBox" ui-view>
+  <div class="login-logo">
+    <a href="../index.html">Inciar Sesión</a>
+  </div>
+  <div class="login-box-body">
+    <p class="login-box-msg">Loguéate para comenzar</p>
+
+      <div class="form-group has-feedback">
+        <input id="username" type="email" class="form-control" ng-model="user.nombreUsuario" ng-required="true" placeholder="Correo">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input id="password" type="password" class="form-control" ng-model="user.contrasenia" ng-required="true" placeholder="Contraseña">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="checkbox icheck">
+            <label>
+              <input type="checkbox" id="rememberMe"> Recuérdame
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-6">
+          <button id="btn-SignIn" ng-click = "verifyUser(user.nombreUsuario, user.contrasenia)" class="btn btn-primary btn-block btn-flat">Entrar</button>
+        </div>
+        <!-- /.col -->
+      </div>
+
+    <a href="">Olvidé mi contraseña</a><br>
+    <a ui-sref="InicioSesion.Registrarse" class="text-center">Registrarme</a>
+
+  </div>
+</div>
+<!-- /.login-box -->  
