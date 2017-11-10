@@ -10,12 +10,29 @@ class Empleado extends Model
     //
 
        protected $table = 'Empleado';//nombre de la tabla 
-       protected $nombre="";
        public $timestamps = false;//para gestion de las tablas
 
 
+       protected $fillable = 
+        ['idEmpleado',
+         'nombre',
+         'apellido',
+         'identidad',
+         'genero',
+         'edad',
+         'fecha_nacimiento',
+         'telefono',
+         'correo',
+         'direccion',
+         'cod_empleado',
+         'idCargo',
+         'idEncargado',
+         'idContrato',
+        ];
 
- public function mostrarEmpleado($id) {
+
+
+ public function obtenerDatosEmpleado($id) {
        $sql = DB::select(
        						'SELECT A.cod_empleado as codigo ,A.nombre as nombre, B.nombre_cargo as cargo,              
        								C.horaEntrada as horaentrada, C.horaSalida as horasalida, 
@@ -32,7 +49,7 @@ class Empleado extends Model
 
 
 
- public function insertarEmpleado() {
+ public function guardarDatosEmpleado() {
        $sql = DB::insert(
        						'SELECT A.cod_empleado as codigo ,A.nombre as nombre, B.nombre_cargo as cargo,              
        								C.horaEntrada as horaentrada, C.horaSalida as horasalida, 

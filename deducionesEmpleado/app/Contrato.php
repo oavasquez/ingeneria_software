@@ -9,8 +9,18 @@ class Contrato extends Model
 {
     //
 
-    protected $table = 'contrato';//nombre de la tabla 
+    protected $table = 'Contrato';//nombre de la tabla 
     public $timestamps = false;//para gestion de las tablas
+
+    protected $fillable = 
+        ['idContrato',
+         'TipoContrato',
+         'horaEntrada',
+         'horaSalida',
+         'diasDeTrabajo',
+         'fechaContratacion',
+         'sueldo'
+        ];
 
 
     public function mostrarContrato($id) {

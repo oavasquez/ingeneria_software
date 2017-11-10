@@ -97,4 +97,12 @@ Route::get('/getDatosContrato', "ContratoController@EncontrarContrato");
 */
 
 
+Route::post('/guardarPermisoDia','PermisosController@guardarPermisoDia');
+Route::post('/guardarPermisoeSalida','PermisosController@guardarPaseSalida');
+Route::post('/guardarPermisoDuelo','PermisosController@guardarPermisoDuelo');
+Route::post('/guardarPermisoMatrimonio','PermisosController@guardarPermisoMatrimonio');
+Route::post('/guardarPermisoMedico','PermisosController@guardarPermisoMedico');
+Route::post('/guardarPermisoMaternidad','PermisosController@guardarPermisoMaternidad');
+
+
 
