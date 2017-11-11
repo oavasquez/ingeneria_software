@@ -29,15 +29,32 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   </head>
-  <body class="hold-transition" id="body" >
+  <body ng-app="ProyectoISApp" class="hold-transition skin-black sidebar-mini" id="body">
 
-    <div id="MasterContent">
-
-
+    <div ui-view id="MasterContent">
 
     </div>
     <!-- ./wrapper -->
 
+    <script src="components/angular.min.js"></script>
+    <script src="components/angular-resource.min.js"></script>
+    <script src="components/angular-ui-router.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-cookies.js"></script>
+    <!--Archivo routerUI-->
+    <script src="scripts/routerUI.js"></script>
+    <!--Services Angular/Laravel-->
+    <script src="scripts/Services/ResourceServices.js"></script>
+    <!--Services Globales-->
+    <script src="scripts/Services/GlobalServices.js"></script>
+    
+    <!--Controladores-->
+        <!--Relacionados a plantilla Inicio de Sesion-->
+        <script src="scripts/Controllers/InicioSesion/InicioSesion.js"></script>
+        <script src="scripts/Controllers/InicioSesion/Registrarse.js"></script>
+       
+        <script src="scripts/Controllers/Principal/Principal.js"></script>
+        
     <!-- jQuery 3 -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -48,7 +65,8 @@
     </script>
     <!-- Bootstrap 3.3.7 -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <!--Ui Bootstrap>
+    <script src="components/ui-bootstrap-1.2.3.min.js"></script-->
     <!-- Sparkline -->
     <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
     <!-- jvectormap -->
@@ -69,8 +87,10 @@
     <script src="bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.min.js"></script>
-
-    <script src="javascript/mainController.js"></script>
+    <!-- fullCalendar -->
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    
 
   </body>
 </html>

@@ -13,8 +13,8 @@ class PermisosController extends Controller
      public function guardarPermiso(Request $resquest){
 
         $codigoEmpleado=$resquest->codigo;
-        $instaciaPermiso= new Permiso;
-        $instaciaPermiso->fill(['idPermisos'=>null,
+        $instanciaPermiso= new Permiso;
+        $instanciaPermiso->fill(['idPermisos'=>null,
 								 'descrip_permiso'=>$resquest->descripcion,
 								 'fecha_inicio'=>$resquest->fechaIicios,
 								 'fecha_final'=>$resquest->fechaInicios,
@@ -25,16 +25,16 @@ class PermisosController extends Controller
 								 'estadoPermiso'=>null
 								]);
         
-        return $instaciaPermiso->save();
+        return $instanciaPermiso->save();
         	
     	
         }
 
       public function aprobarPermiso(Request $resquest){
 
-      	$instaciaPermiso= new Permiso;
-      	//$instaciaPermiso->aprobarPermiso($resquest->idpermiso);
-      	return $instaciaPermiso::where('destination', $resquest->idpermiso)
+      	$instanciaPermiso= new Permiso;
+      	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
+      	return $instanciaPermiso::where('destination', $resquest->idpermiso)
 				          ->update(['estadoPermiso' => 1]);
 
 
@@ -43,9 +43,9 @@ class PermisosController extends Controller
 
       public function denegarPermiso(Request $resquest){
 
-      	$instaciaPermiso= new Permiso;
-      	//$instaciaPermiso->aprobarPermiso($resquest->idpermiso);
-      	return $instaciaPermiso::where('idPermisos', $resquest->idpermiso)
+      	$instanciaPermiso= new Permiso;
+      	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
+      	return $instanciaPermiso::where('idPermisos', $resquest->idpermiso)
       							->update(['estadoPermiso' => 0]);
 
 
@@ -54,11 +54,20 @@ class PermisosController extends Controller
 
       public function verPermiso(Request $resquest){
 
-      	$instaciaPermiso= new Permiso;
-      	//$instaciaPermiso->aprobarPermiso($resquest->idpermiso);
-      	return $instaciaPermiso::where('idPermisos', $resquest->idpermiso)->get();
+      	$instanciaPermiso= new Permiso;
+      	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
+      	return $instanciaPermiso::where('idPermisos', $resquest->idpermiso)->get();
 
       }
+/*
+      public function eliminarPermiso(Request $resquest){
+
+        $instanciaPermiso= new Permiso;
+        //$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
+        return $instanciaPermiso::where('idPermisos', $resquest->idpermiso)->delete();
+
+      }
+*/
 
     
     

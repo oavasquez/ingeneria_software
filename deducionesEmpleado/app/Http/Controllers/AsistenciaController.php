@@ -9,14 +9,26 @@ class AsistenciaController extends Controller
 {
     //
 
-    public function aprobarPermiso(Request $resquest){
+    public function obtenerTiempoRetraso(Request $resquest){
 
-      	$instaciaPermiso= new Permiso;
-      	//$instaciaPermiso->aprobarPermiso($resquest->idpermiso);
-      	return $instaciaPermiso::where('destination', $resquest->idpermiso)
-				          ->update(['estadoPermiso' => 1]);
+      	$instanciaAsistencia= new Asistencia;
+      	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
+      	return $instanciaPermiso->obtenerTiempoRetraso($resquest);
 
 
 
       }
+
+    public function obtenerAsistencia(Request $resquest){
+    	$instanciaAsistencia= new Asistencia;
+      	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
+      	return $instanciaAsistencia::where('fecha', $resquest->fecha)
+				          ->get();
+    	
+    }
+    public function obtenerDiasFaltados(Request $resquest){
+    	$instanciaAsistencia= new Asistencia;
+    	return $instanciaAsistencia->obtenerDiasFaltados($resquest);
+    	
+    }
 }

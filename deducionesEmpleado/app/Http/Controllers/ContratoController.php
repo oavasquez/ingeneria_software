@@ -12,18 +12,28 @@ use App\Contrato;
 class ContratoController extends Controller
 {
 
-    public function EncontrarContrato(Request $resquest){
+   	public function encontrarContrato(Request $resquest){
 
-        $codigoContrato=$resquest->codigo;
+        //$codigoContrato=$resquest->codigo;
         $contrato= new contrato;
-        $listaContratos=$contrato->mostrarContrato($codigoContrato); 	
-  
-                                    
-                                
-    	return $listaContratos;
+        //$listaContratos=$contrato->mostrarContrato($codigoContrato); 	
+        return $contrato::where('idContrato',$resquest->idContrato)->get();                
+    	//return $listaContratos;
     	
         }
-    
+
+
+    public function modificarContrato(Request $resquest) {
+     	$contrato = new contrato;
+        return $contrato::where('idContrato',$resquest->idContrato)
+        				  ->update(['TipoContrato'=>$resquest->tipoContrato,
+						         	'horaEntrada'=>$resquest->horaEntrada,
+						        	'horaSalida'=>$resquest->horaSalida,
+						         	'diasDeTrabajo'=>$resquest->dias,
+						         	'fechaContratacion'=>$resquest->fechaContratacion,
+						         	'sueldo'=>$resquest->sueldo
+						         	]);      
+
     }
 
 ?>

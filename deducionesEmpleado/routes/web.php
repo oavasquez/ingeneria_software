@@ -14,80 +14,56 @@
 Route::get('/', function () {
     return view('index');
 });
-
 Route::get('/BuscarEmpleado', function () {
     return view('/pages/BuscarEmpleado');
 });
-
 Route::get('/BuscarContrato',function (){
     return view('/pages/BuscarContrato');
 });
-
-
 Route::get('/Contador', function () {
     return view('/pages/Contador');
 });
-
 Route::get('/Contador', function () {
     return view('/pages/Contador');
 });
-
 Route::get('/ListadoEmpleados', function () {
     return view('pages/ListadoEmpleados');
 });
-
-
 Route::get('/adm_solicitudDIA', function () {
     return view('pages/adm_solicitudDIA');
 });
-
-
 Route::get('/adm_solicitudDuelo', function () {
     return view('pages/adm_solicitudDuelo');
 });
-
-
 Route::get('/adm_solicitudExcMedica', function () {
     return view('pages/adm_solicitudExcMedica');
 });
-
 Route::get('/adm_solicitudMaternidad', function () {
     return view('pages/adm_solicitudMaternidad');
 });
-
 Route::get('/adm_solicitudMatrimonio', function () {
     return view('pages/adm_solicitudMatrimonio');
 });
-
 Route::get('/adm_solicitudSalida', function () {
     return view('pages/adm_solicitudSalida');
 });
-
 Route::get('/calendarioPermisos', function () {
     return view('pages/calendarioPermisos');
 });
-
 Route::get('/login', function () {
     return view('pages/login');
 });
-
-
 Route::get('/500', function () {
     return view('pages/500');
 });
-
-
 Route::get('/404', function () {
     return view('pages/404');
 });
-
 Route::get('/registrarEmpleado', function () {
     return view('pages/register');
 });
 
-Route::get('/getDatosEmpleado', "EmpleadoController@EncontrarEmpleado");
-
-Route::get('/getDatosContrato', "ContratoController@EncontrarContrato");
+//Route::get('/getDatosEmpleado', "EmpleadoController@EncontrarEmpleado");
 /*Route::get('/getDatosEmpleado', function () {
     return response()->json([
     'name' => 'Abigail',
@@ -97,12 +73,51 @@ Route::get('/getDatosContrato', "ContratoController@EncontrarContrato");
 */
 
 
+//#########controladores de las vistas y conectados con las clases################
+
+
+//permisos
 Route::post('/guardarPermisoDia','PermisosController@guardarPermisoDia');
 Route::post('/guardarPermisoeSalida','PermisosController@guardarPaseSalida');
 Route::post('/guardarPermisoDuelo','PermisosController@guardarPermisoDuelo');
 Route::post('/guardarPermisoMatrimonio','PermisosController@guardarPermisoMatrimonio');
 Route::post('/guardarPermisoMedico','PermisosController@guardarPermisoMedico');
 Route::post('/guardarPermisoMaternidad','PermisosController@guardarPermisoMaternidad');
+
+//Empleado
+
+Route::post('/guardarDatosEmpleado','EmpleadoController@guardarDatosEmpleado');
+Route::post('/modificarDatosEmpleado','EmpleadoController@modificarEmpleado');
+Route::post('/borrarDatosEmpleado','EmpleadoController@eliminarEmpleado');
+Route::post('/obtenerDatosEmpleado','EmpleadoController@obtenerDatosEmpleado');
+
+//Contrato
+
+Route::post('/getDatosContrato', "ContratoController@encontrarContrato");
+Route::post('/modificarContrato', "ContratoController@modificarContrato");
+
+//asistencia
+
+Route::post('/obtenerTiempoRetraso', "AsistenciaController@obtenerTiempoRetraso");
+Route::post('/obtenerAsistencia', "AsistenciaController@obtenerAsistencia");
+Route::post('/obtenerDiasFaltados', "AsistenciaController@obtenerDiasFaltados");
+
+//Deduciones
+
+Route::post('/aplicarDeducion', "DeduccionesController@AplicarDeducion");
+Route::post('/verDeducion', "DeduccionesController@VerDeducion");
+Route::post('/eliminarDeducion', "DeduccionesController@EliminarDeducion");
+
+//planilla
+
+Route::post('/verSueldo', "PlanillaController@verSueldo");
+Route::post('/calcularSueldo', "PlanillaController@calcularSueldo");
+Route::post('/verPlanilla', "PlanillaController@verPlanilla");
+Route::post('/guardarPlanilla', "PlanillaController@guardarPlanilla");
+
+
+
+
 
 
 
