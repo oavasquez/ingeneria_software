@@ -32,11 +32,18 @@ class PlanillaController extends Controller
         }
         
         public function verPlanilla(Request $resquest){
+            $instanciaPago = new Pago;
+            return $instanciaPago->verPlanilla($resquest);
             
 
 
         }
         public function guardarPlanilla(Request $resquest){
+
+        }
+        public function historialPagos(Request $resquest){
+            $instanciaPago = new Pago;
+            return $sueldoTotal = $instanciaPago->historialPagos($resquest);
 
         }
 }

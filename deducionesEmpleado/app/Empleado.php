@@ -28,6 +28,9 @@ class Empleado extends Model
          'idCargo',
          'idEncargado',
          'idContrato',
+         'nombreUsuario',
+         'contrasena'
+
         ];
 
 
@@ -48,7 +51,19 @@ class Empleado extends Model
         return $sql;
     }
 
+public function iniciarSesion($resquest) {
 
+       $sql = DB::select(
+                  'SELECT A.idEmpleado as codigoUsuario, CONCAT(A.nombre," ", A.apellido) as nombreUsuario, B.nombre_cargo as cargo 
+                   FROM Empleado A
+                   INNER JOIN Cargo as B
+                   ON(A.idCargo=B.idCargo)
+                   WHERE nombreUsuario=? AND contrasena=MD5(?)',
+                   [$resquest->nombreUsuario,$resquest->contrasenia]);
+
+        return $sql;
+      
+    }
 
  public function guardarDatosEmpleado() {
     
@@ -60,6 +75,19 @@ class Empleado extends Model
     }
 
     public function modificarEmpleado() {
+      
+    }
+
+      public function obtenerSuperiores($resquest) {
+        $sql = DB::select(
+                        'SELECT idEmpleado as codigoEmpleado, CONCAT(A.nombre," ",A.apellido) as nombreEmpleado, B.nombre_cargo as cargo
+                         FROM Empleado A
+                         INNER JOIN Cargo B 
+                         ON(A.idCargo=B.idCargo)
+                         WHERE A.idCargo>1');
+
+        return $sql;
+
       
     }
 }

@@ -29,8 +29,8 @@ class DeduccionesController extends Controller
 
     public function VerDeducion(Request $resquest){
     	$instaciaDeducciones= new Deducciones;
-    	return $instaciaDeducciones::where('idPago', $resquest->idPago)->get();
-
+    	//return $instaciaDeducciones::where('idPago', $resquest->idPago)->get();
+        return $instaciaDeducciones->VerDeducion($resquest);
 
     }
 

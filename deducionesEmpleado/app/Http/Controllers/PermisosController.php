@@ -12,11 +12,13 @@ class PermisosController extends Controller
 
      public function guardarPermiso(Request $resquest){
 
-        $codigoEmpleado=$resquest->codigo;
+        //$codigoEmpleado=$resquest->codigo;
         $instanciaPermiso= new Permiso;
-        $instanciaPermiso->fill(['idPermisos'=>null,
+        return $instanciaPermiso->guardarPermiso($resquest);
+        
+        /*$instanciaPermiso->fill(['idPermisos'=>null,
 								 'descrip_permiso'=>$resquest->descripcion,
-								 'fecha_inicio'=>$resquest->fechaIicios,
+								 'fecha_inicio'=>$resquest->diaPermiso,
 								 'fecha_final'=>$resquest->fechaInicios,
 								 'num_dias'=>$resquest->numDias,
 								 'idTipo_Permiso'=>$resquest->idTPermiso,
@@ -25,7 +27,7 @@ class PermisosController extends Controller
 								 'estadoPermiso'=>null
 								]);
         
-        return $instanciaPermiso->save();
+        return $instanciaPermiso->save();*/
         	
     	
         }

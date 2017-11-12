@@ -77,12 +77,8 @@ Route::get('/registrarEmpleado', function () {
 
 
 //permisos
-Route::post('/guardarPermisoDia','PermisosController@guardarPermisoDia');
-Route::post('/guardarPermisoeSalida','PermisosController@guardarPaseSalida');
-Route::post('/guardarPermisoDuelo','PermisosController@guardarPermisoDuelo');
-Route::post('/guardarPermisoMatrimonio','PermisosController@guardarPermisoMatrimonio');
-Route::post('/guardarPermisoMedico','PermisosController@guardarPermisoMedico');
-Route::post('/guardarPermisoMaternidad','PermisosController@guardarPermisoMaternidad');
+Route::post('/guardarPermiso','PermisosController@guardarPermiso');
+
 
 //Empleado
 
@@ -90,10 +86,12 @@ Route::post('/guardarDatosEmpleado','EmpleadoController@guardarDatosEmpleado');
 Route::post('/modificarDatosEmpleado','EmpleadoController@modificarEmpleado');
 Route::post('/borrarDatosEmpleado','EmpleadoController@eliminarEmpleado');
 Route::post('/obtenerDatosEmpleado','EmpleadoController@obtenerDatosEmpleado');
+Route::post('/iniciarSesion','EmpleadoController@iniciarSesion');
+Route::post('/obtenerSuperiores','EmpleadoController@obtenerSuperiores');
 
 //Contrato
 
-Route::post('/getDatosContrato', "ContratoController@encontrarContrato");
+Route::post('/encontrarContrato', "ContratoController@encontrarContrato");
 Route::post('/modificarContrato', "ContratoController@modificarContrato");
 
 //asistencia
@@ -105,15 +103,17 @@ Route::post('/obtenerDiasFaltados', "AsistenciaController@obtenerDiasFaltados");
 //Deduciones
 
 Route::post('/aplicarDeducion', "DeduccionesController@AplicarDeducion");
-Route::post('/verDeducion', "DeduccionesController@VerDeducion");
+Route::get('/verDeducion', "DeduccionesController@VerDeducion");
 Route::post('/eliminarDeducion', "DeduccionesController@EliminarDeducion");
 
 //planilla
 
 Route::post('/verSueldo', "PlanillaController@verSueldo");
 Route::post('/calcularSueldo', "PlanillaController@calcularSueldo");
-Route::post('/verPlanilla', "PlanillaController@verPlanilla");
+Route::get('/verPlanilla', "PlanillaController@verPlanilla");
 Route::post('/guardarPlanilla', "PlanillaController@guardarPlanilla");
+Route::get('/historialPagos', "PlanillaController@historialPagos");
+
 
 
 

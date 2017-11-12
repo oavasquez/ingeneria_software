@@ -23,7 +23,20 @@ class Permiso extends Model
 	 'estadoPermiso'
 	];
 
+     public function guardarPermiso($resquest){
 
+
+          $sql = DB::insert('INSERT INTO Permisos (idPermisos, descrip_permiso, fecha_inicio,
+                                         fecha_final, num_dias, idTipo_Permiso, idEmpleado,
+                                         idResposable, estadoPermiso) 
+                              VALUES (NULL, ?, str_to_date(?, "%Y-%m-%d"), NULL, NULL, ?, ?, ?, NULL)',[$resquest->descripcion,
+                                             $resquest->diaPermiso,
+                                             $resquest->tipoPermiso,
+                                             $resquest->codigoEmpleado,
+                                             $resquest->codigoSuperior]);
+          return $sql;
+
+     }
      public function solicitarPermiso(){
 
      }

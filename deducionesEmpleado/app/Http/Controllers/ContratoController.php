@@ -15,9 +15,10 @@ class ContratoController extends Controller
    	public function encontrarContrato(Request $resquest){
 
         //$codigoContrato=$resquest->codigo;
-        $contrato= new contrato;
+        $instanciaContrato= new Contrato;
+        return $instanciaContrato->mostrarContrato($resquest);
         //$listaContratos=$contrato->mostrarContrato($codigoContrato); 	
-        return $contrato::where('idContrato',$resquest->idContrato)->get();                
+        //return $contrato::where('idContrato',$resquest->idContrato)->get();                
     	//return $listaContratos;
     	
         }

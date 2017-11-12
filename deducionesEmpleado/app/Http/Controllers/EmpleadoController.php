@@ -24,11 +24,31 @@ class EmpleadoController extends Controller
 	    	 //return response()->json(['name' => 'Abigail','state' => 'CA']);
 	     }
 
+	    public function iniciarSesion(Request $resquest){
+
+	        
+	        $instanciaEmpleado= new Empleado;
+	        return $instanciaEmpleado->iniciarSesion($resquest); 	
+	    	//$Empleados = DB::select("SELECT nombre FROM Empleado ");
+	                                    
+	                                
+	    	//return $listaEmpleados;
+	    	 //return response()->json(['name' => 'Abigail','state' => 'CA']);
+	     }
+
+	      public function obtenerSuperiores(Request $resquest) {
+
+	      	$instanciaEmpleado= new Empleado;
+	    	return $instanciaEmpleado->obtenerSuperiores($resquest); 
+        
+      
+ 		   }
+
 
 	    public function obtenerDatosEmpleado(Request $resquest) {
 
 	    	 $instanciaEmpleado= new Empleado;
-	    	 return $instanciaEmpleado::where('cod_empleado', $resquest->codigoEmpleado)->get();
+	    	 return $instanciaEmpleado::where('idCargo', $resquest->codigoEmpleado)->get();
 	    	}
 
 
@@ -40,16 +60,16 @@ class EmpleadoController extends Controller
 							         'nombre'=>$resquest->nombre,
 							         'apellido'=>$resquest->apellido,
 							         'identidad'=>$resquest->identidad,
-							         'genero'=>$resquest->genero,
-							         'edad'=>$resquest->edad,
-							         'fecha_nacimiento'=>$resquest->nombre,
+							         'genero'=>null,
+							         'edad'=>null,
+							         'fecha_nacimiento'=>null,
 							         'telefono'=>$resquest->telefono,
-							         'correo'$resquest->correo,
-							         'direccion'$resquest->direccion,
-							         'cod_empleado'$resquest->codigoEmpleado,
+							         'correo'=>$resquest->correo,
+							         'direccion'=>$resquest->direccion,
+							         'cod_empleado'=>null,
 							         'idCargo'=>$resquest->idCargo,
-							         'idEncargado'=>$resquest->idEncargado,
-							         'idContrato'=>$resquest->contrato
+							         'idEncargado'=>$resquest->codigoEncargado,
+							         'idContrato'=>null
 							        ]);
 	        
 	        return $instanciaEmpleado->save();
@@ -59,7 +79,7 @@ class EmpleadoController extends Controller
 		public function eliminarEmpleado(Request $resquest) {
 
 			$instanciaEmpleado= new Empleado;
-	    	return $instanciaEmpleado::where('cod_empleado', $resquest->codigoEmpleado)->delete();
+	    	return $instanciaEmpleado::where('idEmpleado', $resquest->codigoEmpleado)->delete();
 
 
 		      
