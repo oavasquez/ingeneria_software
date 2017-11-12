@@ -65,7 +65,16 @@ public function iniciarSesion($resquest) {
       
     }
 
- public function guardarDatosEmpleado() {
+ public function guardarDatosEmpleado($resquest) {
+    $sql = DB::select(
+                  'SELECT A.idEmpleado as codigoUsuario, CONCAT(A.nombre," ", A.apellido) as nombreUsuario, B.nombre_cargo as cargo 
+                   FROM Empleado A
+                   INNER JOIN Cargo as B
+                   ON(A.idCargo=B.idCargo)
+                   WHERE nombreUsuario=? AND contrasena=MD5(?)',
+                   [$resquest->nombreUsuario,$resquest->contrasenia]);
+
+        return $sql;
     
       
     }
