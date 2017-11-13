@@ -15,12 +15,15 @@ class EmpleadoController extends Controller
 
 	        $codigoEmpleado=$resquest->codigo;
 	        $instanciaEmpleado= new Empleado;
-	        $listaEmpleados=$Empleado->mostrarEmpleado($codigoEmpleado); 	
+	        $listaEmpleados=$Empleado->obtenerDatosEmpleado($codigoEmpleado); 	
 	    	//$Empleados = DB::select("SELECT nombre FROM Empleado ");                  
 	                                
 	    	return $listaEmpleados;
 	    	//return response()->json(['name' => 'Abigail','state' => 'CA']);
 	     }
+
+
+	     
 
 		public function iniciarSesion(Request $resquest){
 			$instanciaEmpleado= new Empleado;

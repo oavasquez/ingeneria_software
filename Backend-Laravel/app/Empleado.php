@@ -64,17 +64,13 @@ class Empleado extends Model
         return response()->json($object);      
     }
 
- public function guardarDatosEmpleado($resquest) {
-    $sql = DB::select(
-                  'SELECT A.idEmpleado as codigoUsuario, CONCAT(A.nombre," ", A.apellido) as nombreUsuario, B.nombre_cargo as cargo 
-                   FROM Empleado A 
-                   INNER JOIN Cargo as B 
-                   ON(A.idCargo=B.idCargo) 
-                   WHERE nombreUsuario=? AND contrasena=?',
-                   [$resquest->nombreUsuario,$resquest->contrasenia]);
 
-    $object = (object)$sql;
-    return response()->json($object);
+
+
+ public function guardarDatosEmpleado($resquest) {
+    
+
+    
     }
 
     public function eliminarEmpleado() {
