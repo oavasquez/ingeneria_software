@@ -4,7 +4,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use App\Empleado;
@@ -23,19 +22,15 @@ class EmpleadoController extends Controller
 	    	//return response()->json(['name' => 'Abigail','state' => 'CA']);
 	     }
 
-	    public function iniciarSesion(Request $resquest){
-	        $instanciaEmpleado= new Empleado;
-	        return json_encode($instanciaEmpleado->iniciarSesion($resquest)); 	
-	    	//$Empleados = DB::select("SELECT nombre FROM Empleado ");               
+		public function iniciarSesion(Request $resquest){
+			$instanciaEmpleado= new Empleado;
+			return $instanciaEmpleado->iniciarSesion($resquest); 	
 		}
 
-	      public function obtenerSuperiores(Request $resquest) {
-
-	      	$instanciaEmpleado= new Empleado;
-	    	return $instanciaEmpleado->obtenerSuperiores($resquest); 
-        
-      
- 		   }
+		public function obtenerSuperiores(Request $resquest) {
+			$instanciaEmpleado= new Empleado;
+			return $instanciaEmpleado->obtenerSuperiores($resquest); 
+		}
 
 
 	    public function obtenerDatosEmpleado(Request $resquest) {

@@ -102,9 +102,9 @@ Route::post('/obtenerDiasFaltados', "AsistenciaController@obtenerDiasFaltados");
 
 //Deduciones
 
-Route::post('/aplicarDeducion', "DeduccionesController@AplicarDeducion");
-Route::get('/verDeducion', "DeduccionesController@VerDeducion");
-Route::post('/eliminarDeducion', "DeduccionesController@EliminarDeducion");
+Route::post('/aplicarDeduccion', "DeduccionesController@AplicarDeduccion");
+Route::get('/verDeduccion', "DeduccionesController@VerDeduccion");
+Route::post('/eliminarDeduccion', "DeduccionesController@EliminarDeduccion");
 
 //planilla
 

@@ -23,7 +23,7 @@ class Deducciones extends Model
 
         ];
 
-    public function aplicarDeducion(){
+    public function aplicarDeduccion(){
         
         /*
         $idPagoEmpleado =DB::select('SELECT  idPago 
@@ -56,7 +56,7 @@ class Deducciones extends Model
 
     }
 
-    public function verDeduciones($resquest){
+    public function verDeducciones($resquest){
 
         $sql =DB::select(
             'SELECT A.idDeducciones, CONCAT(C.nombre," ",C.apellido) as nombreEmpleado, A.dedu_IHSS as deduccionIHSS , A.dedu_RAP as deduccionRAP, A.dedu_aportaciones as deducionesAportaciones
@@ -65,13 +65,13 @@ class Deducciones extends Model
              ON(A.idPago=B.idPago)
              INNER JOIN Empleado AS C
              ON(B.IdEmpleado=C.idEmpleado)');
-        return $sql;
-
-
+             
+     $object = (object)$sql;
+     return response()->json($object);
     }
 
 
-    public function eliminarDeducion(){
+    public function eliminarDeduccion(){
     	
     } 
 }

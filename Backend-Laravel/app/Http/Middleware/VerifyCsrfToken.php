@@ -13,6 +13,12 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'iniciarSesion',
-        'obtenerDatosEmpleado'
+        'obtenerDatosEmpleado',
+        'verPlanilla',
+        'encontrarEmpleado',
+        'verDeduccion',
+        'historialPagos',
+        'obtenerSuperiores',
+        'guardarPermiso'
     ];
 }
