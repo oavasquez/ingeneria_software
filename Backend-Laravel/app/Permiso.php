@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
 class Permiso extends Model
 {
@@ -26,16 +28,17 @@ class Permiso extends Model
      public function guardarPermiso($resquest){
 
 
-          $sql = DB::insert('INSERT INTO Permisos (idPermisos, descrip_permiso, fecha_inicio,
-                                         fecha_final, num_dias, idTipo_Permiso, idEmpleado,
-                                         idResposable, estadoPermiso) 
-                              VALUES (NULL, ?, str_to_date(?, "%Y-%m-%d"), NULL, NULL, ?, ?, ?, NULL)',[$resquest->descripcion,
-                                             $resquest->diaPermiso,
-                                             $resquest->tipoPermiso,
-                                             $resquest->codigoEmpleado,
-                                             $resquest->codigoSuperior]);
-          return $sql;
-
+        $sql = DB::insert('INSERT INTO Permisos (idPermisos, descrip_permiso, fecha_inicio,
+                                        fecha_final, num_dias, idTipo_Permiso, idEmpleado,
+                                        idResposable, estadoPermiso) 
+                            VALUES (NULL, ?, str_to_date(?, "%Y-%m-%d"), NULL, NULL, ?, ?, ?, NULL)',
+                                        [$resquest->descripcion,
+                                            $resquest->diaPermiso,
+                                            $resquest->tipoPermiso,
+                                            $resquest->codigoEmpleado,
+                                            $resquest->codigoSuperior]);
+        $object = (object)$sql;
+        return response()->json($object);
      }
      public function permisosSinLeer($resquest){
 

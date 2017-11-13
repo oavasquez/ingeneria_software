@@ -14,6 +14,7 @@
         <input type="password" class="form-control" ng-model="user.contrasenia" ng-required="true" placeholder="Contraseña">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <span ng-if="mostrarMensajeError"  class="help-block text-red">Correo o contraseña son incorrectos</span>      
       <div class="row">
         <div class="col-xs-6">
           <div class="checkbox icheck">

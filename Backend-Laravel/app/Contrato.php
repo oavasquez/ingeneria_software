@@ -28,18 +28,16 @@ class Contrato extends Model
                         'SELECT A.idEmpleado AS codigoEmpleado, 
                                 CONCAT(A.nombre," ", A.apellido) as nombreEmpleado, 
                                 C.nombre_cargo AS cargo, B.sueldo, B.horaEntrada, B.horaSalida  
-                        FROM Empleado AS A
-                        INNER JOIN Contrato AS B
-                        ON(A.idContrato=B.idContrato)
-                        INNER JOIN Cargo as C
-                        ON(A.idCargo=C.idCargo)
+                        FROM Empleado AS A 
+                        INNER JOIN Contrato AS B 
+                        ON(A.idContrato=B.idContrato) 
+                        INNER JOIN Cargo as C 
+                        ON(A.idCargo=C.idCargo) 
                         WHERE A.idEmpleado=?',
                         [$resquest->codigoEmpleado]);
 
-        return $sql;
+        //return $sql;
+        $object = (object)$sql;
+        return response()->json($object);
     }
-
-
 }
-
-

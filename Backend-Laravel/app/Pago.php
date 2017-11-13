@@ -44,10 +44,9 @@ class Pago extends Model
 
 
 
-        return response()->json(['sueldoTotal'=>$sueldoTotal])
-
-
+        return response()->json(['sueldoTotal'=>$sueldoTotal]);
         }
+        
         public function verPlanilla($resquest){
             $sql = DB::select(
                             'SELECT A.IdEmpleado as codigoEmpleado,A.fecha_pago as fechaPago, A.total_deducciones as totalDeduciones, A.total_pago as totalPago, CONCAT(B.nombre," ",B.apellido) as nombreEmpleado, D.nombre_cargo AS cargo, C.cantidadDeduciones

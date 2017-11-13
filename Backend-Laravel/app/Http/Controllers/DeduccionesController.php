@@ -10,12 +10,12 @@ class DeduccionesController extends Controller
 {
     //
 
-    public function AplicarDeducion(Request $resquest){
+    public function AplicarDeduccion(Request $resquest){
 
         $instaciaDeducciones= new Deducciones;
         $instaciaDeducciones->fill(
         						['idDeducciones'=>null,
-						         'dedu_IHSS'=>$resquest->deduccionIhss
+						         'dedu_IHSS'=>$resquest->deduccionIhss,
 						         'dedu_RAP'=>$resquest->deduccionRap,
 						         'dedu_aportaciones'=>$resquest->deduccionAportacion,
 						         'dedu_falta'=>$resquest->deducionFalta,
@@ -27,14 +27,14 @@ class DeduccionesController extends Controller
         return $instaciaDeducciones->save();
         }
 
-    public function VerDeducion(Request $resquest){
+    public function VerDeduccion(Request $resquest){
     	$instaciaDeducciones= new Deducciones;
     	//return $instaciaDeducciones::where('idPago', $resquest->idPago)->get();
-        return $instaciaDeducciones->VerDeducion($resquest);
+        return $instaciaDeducciones->verDeducciones($resquest);
 
     }
 
-    public function EliminarDeducion(Request $resquest){
+    public function EliminarDeduccion(Request $resquest){
     	$instaciaDeducciones= new Deducciones;
     	return $instaciaDeducciones::where('idPago', $resquest->idDeducion)->delete();
 

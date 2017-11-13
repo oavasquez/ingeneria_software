@@ -2,22 +2,46 @@
 
 angular.module('ProyectoISApp')
 
+	//Funcionando
 	.factory('ResourceInicioSesionValidar', function($resource){
 		return $resource("http://localhost:8000/iniciarSesion/");
 	})
 	
-	.factory('ResourceRegistroVerificar', function($resource){
-		return $resource("http://localhost:8000/Registro/verificar");
+	//Incompleto el SQL
+	.factory('ResourceRegistrarEmpleado', function($resource){
+		return $resource("http://localhost:8000/guardarDatosEmpleado");
 	})
 
-	.factory('ResourceRegistrarse', function($resource){
-		return $resource("http://localhost:8000/Registrarse/registro");
+	//Error: 500 (Internal Server Error)
+	.factory('ResourceBuscarContrato', function($resource){
+		return $resource("http://localhost:8000/encontrarContrato");
 	})
 
-	.factory('ResourceCuentaLogueada', function($resource){
-		return $resource("http://localhost:8000/Principal/login/:id", {id: "@id"});
+	//Error: 500 (Internal Server Error)
+	.factory('ResourcePlanillaMes', function($resource){
+		return $resource("http://localhost:8000/verPlanilla");
+	})	
+
+	//Funcionando
+	.factory('ResourceHistorialDeducciones', function($resource){
+		return $resource("http://localhost:8000/verDeduccion");
+	})		
+
+	//Funcionando
+	.factory('ResourceHistorialPagos', function($resource){
+		return $resource("http://localhost:8000/historialPagos");
 	})		
 	
+	//Funcionando
+	.factory('ResourceObtenerSuperiores', function($resource){
+		return $resource("http://localhost:8000/obtenerSuperiores");
+	})	
+
+	//Funcionando
+	.factory('ResourceGuardarPermiso', function($resource){
+		return $resource("http://localhost:8000/guardarPermiso");
+	})
+
 	/*
 	Ejemplo con varios parametros
 	//RESOURCES a utilizarse por Brizo
