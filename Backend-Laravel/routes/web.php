@@ -78,6 +78,10 @@ Route::get('/registrarEmpleado', function () {
 
 //permisos
 Route::post('/guardarPermiso','PermisosController@guardarPermiso');
+Route::post('/permisosSinLeer','PermisosController@permisosSinLeer');
+Route::post('/permisosHistorial','PermisosController@permisosHistorial');
+Route::post('/denegarPermiso','PermisosController@denegarPermiso');
+Route::post('/aprobarPermiso','PermisosController@aprobarPermiso');
 
 
 //Empleado
@@ -99,6 +103,12 @@ Route::post('/modificarContrato', "ContratoController@modificarContrato");
 Route::post('/obtenerTiempoRetraso', "AsistenciaController@obtenerTiempoRetraso");
 Route::post('/obtenerAsistencia', "AsistenciaController@obtenerAsistencia");
 Route::post('/obtenerDiasFaltados', "AsistenciaController@obtenerDiasFaltados");
+Route::get('/asistenciaMesActual', "AsistenciaController@asistenciaMesActual");
+Route::get('/asistenciasEmpleado', "AsistenciaController@asistenciasEmpleado");
+Route::get('/obtenerAsistencias', "AsistenciaController@obtenerAsistencias");
+
+
+
 
 //Deduciones
 

@@ -37,6 +37,41 @@ class Permiso extends Model
           return $sql;
 
      }
+     public function permisosSinLeer($resquest){
+
+
+          $sql = DB::insert('SELECT count(A.idPermisos) as cantidadPermisos 
+                             FROM Permisos as A
+                             WHERE A.idResposable=? AND A.estadoPermiso IS NULL ',
+                             [$resquest->codigoEmpleado]);
+          return $sql;
+
+     }
+
+     public function permisosHistorial($resquest){
+
+
+          $sql = DB::insert('SELECT A.idPermisos as CodigoPermiso, 
+                             A.idEmpleado as codigoEmpleado, 
+                             CONCAT(B.nombre," ",B.apellido) as nombreEmpleado, 
+                             A.fecha_inicio as diaPermiso,
+                             C.nombre_permiso as tipoPermiso, 
+                             A.descrip_permiso as descripción, A.estadoPermiso as estadoPermiso
+                             FROM Permisos as A
+                             INNER JOIN Empleado as B
+                             ON(A.idEmpleado=B.idEmpleado)
+                             INNER JOIN Tipo_Permiso as C
+                             ON(A.idTipo_Permiso=C.idTipo_Permiso)
+                             WHERE A.idResposable=? ',
+                             [$resquest->codigoEmpleado]);
+          return $sql;
+
+     }
+
+
+
+
+
      public function solicitarPermiso(){
 
      }
@@ -52,3 +87,5 @@ class Permiso extends Model
      	
      }
 }
+
+

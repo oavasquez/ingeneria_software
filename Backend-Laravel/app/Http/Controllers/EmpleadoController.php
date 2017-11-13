@@ -43,6 +43,16 @@ class EmpleadoController extends Controller
 	    	 $instanciaEmpleado= new Empleado;
 	    	 return $instanciaEmpleado::where('idCargo', $resquest->codigoEmpleado)->get();
 	    	}
+    	
+
+    	public function permisosSinLeer(Request $resquest) {
+
+    	 $instanciaEmpleado= new Empleado;
+    	 return $instanciaEmpleado->permisosSinLeer($resquest);
+    	}
+
+
+	    	
 
 
 

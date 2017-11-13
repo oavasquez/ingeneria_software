@@ -59,7 +59,49 @@ class Asistencia extends Model
         return $sql;
     	
     }
+
+
+     public function asistenciaMesActual($resquest){
+        $sql = DB::select('
+                            SELECT CONCAT(B.nombre," ",B.apellido) as nombreEmpleado, A.fecha AS fechaAsistencia, A.hora_entrada AS horaEntrada, A.hora_salida AS horaSalida, A.EstadoAsistencia as estadoAsistencia
+                            FROM Asistencias AS A
+                            INNER JOIN Empleado AS B
+                            ON(A.idEmpleado=B.idEmpleado)
+                            WHERE DATE_FORMAT(A.fecha, "%m")= DATE_FORMAT(CURDATE(),"%m")');
+
+        return $sql;
+        
+    }
+
+    public function asistenciasEmpleado($resquest){
+        $sql = DB::select('
+                            SELECT CONCAT(B.nombre," ",B.apellido) as nombreEmpleado, A.fecha AS fechaAsistencia, A.hora_entrada AS horaEntrada, A.hora_salida AS horaSalida, A.EstadoAsistencia as estadoAsistencia
+                            FROM Asistencias AS A
+                            INNER JOIN Empleado AS B
+                            ON(A.idEmpleado=B.idEmpleado)
+                            WHERE A.idEmpleado=?',
+                            [$resquest->codigoEmpleado]);
+
+        return $sql;
+        
+    }
     
+    public function obtenerAsistencias($resquest){
+        $sql = DB::select('
+                            SELECT CONCAT(B.nombre," ",B.apellido) as nombreEmpleado, A.fecha AS fechaAsistencia, A.hora_entrada AS horaEntrada, A.hora_salida AS horaSalida, A.EstadoAsistencia as estadoAsistencia
+                            FROM Asistencias AS A
+                            INNER JOIN Empleado AS B
+                            ON(A.idEmpleado=B.idEmpleado)');
+
+        return $sql;
+        
+    }
+    
+    
+
+
+
+
 
 
 }

@@ -38,6 +38,14 @@ class PermisosController extends Controller
       	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
       	return $instanciaPermiso::where('destination', $resquest->idpermiso)
 				          ->update(['estadoPermiso' => 1]);
+      
+
+      public function permisosHistorial(Request $resquest){
+
+        //$codigoEmpleado=$resquest->codigo;
+        $instanciaPermiso= new Permiso;
+        return $instanciaPermiso->permisosHistorial($resquest);
+      }
 
 
 
@@ -53,6 +61,8 @@ class PermisosController extends Controller
 
 
       }
+
+      permisosHistorial
 
       public function verPermiso(Request $resquest){
 

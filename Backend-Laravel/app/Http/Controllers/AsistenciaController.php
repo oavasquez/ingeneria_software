@@ -31,4 +31,24 @@ class AsistenciaController extends Controller
     	return $instanciaAsistencia->obtenerDiasFaltados($resquest);
     	
     }
+
+    public function asistenciaMesActual(Request $resquest){
+      $instanciaAsistencia= new Asistencia;
+      return $instanciaAsistencia->asistenciaMesActual($resquest);
+      
+    }
+
+    public function asistenciasEmpleado(Request $resquest){
+      $instanciaAsistencia= new Asistencia;
+      return $instanciaAsistencia->asistenciasEmpleado($resquest);
+      
+    }
+
+     public function obtenerAsistencias(Request $resquest){
+      $instanciaAsistencia= new Asistencia;
+      return $instanciaAsistencia->obtenerAsistencias($resquest);
+      
+    }
+
+
 }
