@@ -4,13 +4,13 @@ angular.module('ProyectoISApp')
 
 	.controller('InicioSesionController', ['$scope','$location','$http','$timeout','$cookies',
 											'ResourceInicioSesionValidar', 'ResourceBuscarContrato', 'ResourceRegistrarEmpleado', 'ResourcePlanillaMes',
-											'ResourceHistorialDeducciones', 'ResourceHistorialPagos', 'ResourceObtenerSuperiores',
-											'ResourceGuardarPermiso',
+											'ResourceHistorialDeducciones', 'ResourceHistorialPagos', 'ResourceObtenerSuperiores', 'ResourceAsistenciaMesActual',
+											'ResourceGuardarPermiso', 'ResourcePermisosSinLeer', 'ResourceObtenerAsistencias', 'ResourceAprobarPermiso', 'ResourceDenegarPermiso',
 											'InicializarCookies',
 											function($scope, $location, $http ,$timeout,$cookies,
 											 ResourceInicioSesionValidar, ResourceBuscarContrato, ResourceRegistrarEmpleado, ResourcePlanillaMes,
-											 ResourceHistorialDeducciones, ResourceHistorialPagos, ResourceObtenerSuperiores,
-											 ResourceGuardarPermiso,
+											 ResourceHistorialDeducciones, ResourceHistorialPagos, ResourceObtenerSuperiores, ResourceAsistenciaMesActual,
+											 ResourceGuardarPermiso, ResourcePermisosSinLeer, ResourceObtenerAsistencias, ResourceAprobarPermiso, ResourceDenegarPermiso,
 											 InicializarCookies){
 	 
 	//Atributos necesarios
@@ -27,21 +27,23 @@ angular.module('ProyectoISApp')
 			telefono: "99887766",
 			correo: "abc@gmail.com",
 			direccion: "abcd",
-			idCargo: 2
+			idCargo: 1
 		}
 
 		ResourceRegistrarEmpleado.save($scope.datos, function(respuesta){
 			if(respuesta[0] != undefined){
-
+				console.log(respuesta[0]);				
 			}else{
-
+				alert("ERROR");				
 			}
 		});
 	}
+	//$scope.ProbandoRegistrarEmpleado();
+
 	//BUSCAR CONTRATO
 	$scope.ProbandoBuscarContrato = function(){
 		$scope.datos = {
-			codigoEmpleado: 1234,
+			codigoEmpleado: 1234
 		}
 		ResourceBuscarContrato.save($scope.datos, function(respuesta){
 			if(respuesta[0] != undefined){
@@ -56,7 +58,7 @@ angular.module('ProyectoISApp')
 	//VER PLANILLA MES
 	$scope.ProbandoVerPlanillaMes = function(){
 		$scope.datos = {
-			codigoEmpleado: 1234,
+			codigoEmpleado: 1234
 		}
 		ResourcePlanillaMes.get({}, function(respuesta){
 			if(respuesta[0] != undefined){
@@ -68,10 +70,10 @@ angular.module('ProyectoISApp')
 	}
 	$scope.ProbandoVerPlanillaMes();
 
-	//VER DEDUCCIONES
+	/*VER DEDUCCIONES
 	$scope.ProbandoHistorialDeducciones = function(){
 		$scope.datos = {
-			codigoEmpleado: 1234,
+			codigoEmpleado: 1234
 		}
 		ResourceHistorialDeducciones.get({}, function(respuesta){
 			if(respuesta[0] != undefined){
@@ -82,11 +84,11 @@ angular.module('ProyectoISApp')
 		});
 	}
 	$scope.ProbandoHistorialDeducciones();		
-
+*/
 	//HISTORIAL PAGOS
 	$scope.ProbandoHistorialPagos = function(){
 		$scope.datos = {
-			codigoEmpleado: 1234,
+			codigoEmpleado: 1234
 		}
 		ResourceHistorialPagos.get({}, function(respuesta){
 			if(respuesta[0] != undefined){
@@ -101,13 +103,13 @@ angular.module('ProyectoISApp')
 	//OBTENER SUPERIORES
 	$scope.ProbandoObtenerSuperiores = function(){
 		$scope.datos = {
-			codigoEmpleado: 1234,
+			codigoEmpleado: 1234
 		}
 		ResourceObtenerSuperiores.save({}, function(respuesta){
 			if(respuesta[0] != undefined){
 				console.log(respuesta[0]);
 			}else{
-				alert("ERROR");
+				alert("ERROR obtenerSuperiores");
 			}
 		});
 	}
@@ -126,12 +128,89 @@ angular.module('ProyectoISApp')
 			if(respuesta[0] != undefined){
 				console.log(respuesta[0]);
 			}else{
-				alert("ERROR");
+				//alert("ERROR guardarPermiso");
 			}
 		});
 	}
 	$scope.ProbandoGuardarPermiso();	
+
+	//PERMISOS SIN LEER
+	$scope.ProbandoPermisosSinLeer = function(){
+		$scope.datos = {
+			codigoEmpleado: 1234
+		}
+		ResourcePermisosSinLeer.save($scope.datos, function(respuesta){
+			if(respuesta[0] != undefined){
+				console.log(respuesta[0]);
+			}else{
+				alert("ERROR permisosSinLeer");
+			}
+		});
+	}
+	$scope.ProbandoPermisosSinLeer();	
+
+	//OBTENER ASISTENCIAS
+	$scope.ProbandoObtenerAsistencias = function(){
+		$scope.datos = {
+			codigoEmpleado: 1234
+		}
+		ResourceObtenerAsistencias.get({}, function(respuesta){
+			if(respuesta[0] != undefined){
+				console.log(respuesta[0]);
+			}else{
+				alert("ERROR obtenerAsistencias");
+			}
+		});
+	}
+	$scope.ProbandoObtenerAsistencias();		
 	
+	//ASISTENCIAS DEL MES ACTUAL
+	$scope.ProbandoAsistenciaMesActual = function(){
+		$scope.datos = {
+			codigoEmpleado: 1234
+		}
+		ResourceAsistenciaMesActual.get({}, function(respuesta){
+			if(respuesta[0] != undefined){
+				console.log(respuesta[0]);
+			}else{
+				alert("ERROR asistenciaMesActual");
+			}
+		});
+	}
+	$scope.ProbandoAsistenciaMesActual();		
+	
+	//APROBAR PERMISO
+	$scope.ProbandoAprobarPermiso = function(){
+		$scope.datos = {
+			idPermiso: 1
+		}
+		ResourceAprobarPermiso.save($scope.datos, function(respuesta){
+			if(respuesta[0] != undefined){
+				console.log(respuesta[0]);
+			}else{
+				alert("ERROR aprobarPermiso");
+			}
+		});
+	}
+	$scope.ProbandoAprobarPermiso();	
+
+	//DENEGAR PERMISO
+	$scope.ProbandoDenegarPermiso = function(){
+		$scope.datos = {
+			idPermiso: 2
+		}
+		ResourceDenegarPermiso.save($scope.datos, function(respuesta){
+			if(respuesta[0] != undefined){
+				console.log(respuesta[0]);
+			}else{
+				alert("ERROR denegarPermiso");
+			}
+		});
+	}
+	$scope.ProbandoDenegarPermiso();	
+
+
+
 	$scope.verifyUser = function(nombreUsuario, contrasenia){
 		console.log("Iniciar Sesion: " + "usuario: "+ nombreUsuario +"  pass:"+ contrasenia);
 
@@ -146,18 +225,14 @@ angular.module('ProyectoISApp')
 				if(respuesta[0] != undefined){
 						console.log("respuesta desde laravel:" + respuesta);					
 						//Guardamos los valores en las cookies CookieTipoCuentaLogueada						
-						$cookies.put('CookieCuentaLogueada', respuesta.codigoUsuario); 
-						$cookies.put('CookieTipoCuentaLogueada', respuesta.cargo);
+						$cookies.put('CookieCuenta', respuesta[0].codigoUsuario); 
+						$cookies.put('CookieTipoCuenta', respuesta[0].cargo);
 						console.log('codigoUsuario: '+ respuesta[0].codigoUsuario +'  tipoUsuario: ' + respuesta[0].cargo); 
 
 						alert("Bienvenido "+respuesta[0].nombreUsuario);
 
 						$timeout(function (){ 
-							$location.path('/Principal');
-							$("#body").removeClass("sidebar-mini");
-							$("#body").removeClass("skin-black");
-							$("#body").addClass("login-page");                       
-							$("#MasterContent").removeClass("wrapper");   
+							$location.path('/Principal'); 
 						},1000);
 					}
 					else{
@@ -174,41 +249,5 @@ angular.module('ProyectoISApp')
 	 	$scope.user.nombreUsuario = undefined;
 	 	$scope.user.contrasenia = undefined;
 	 }
-
-	 function goToPage(page){
-		$.ajax(
-			{
-				url: "ajax/openFile.php",
-				data: "pageName=../views/"+page+".html",
-				method:"POST",
-				dataType: "json",
-				success:function(response){
-					$("#body").addClass("hold-transition");                       
-					
-					if(page== "Register"){
-						$("#body").removeClass("login-page");   
-						$("#body").addClass("register-page");   
-					}
-					if(page=="Home"){
-						$("#body").removeClass("login-page");   
-						$("#body").addClass("skin-black");
-						$("#body").addClass("sidebar-mini");                       
-						$("#MasterContent").addClass("wrapper");                                           
-					}
-					if(page =="Login"){
-						console.log("GoToLogin()");
-						$("#body").removeClass("sidebar-mini");
-						$("#body").removeClass("skin-black");
-						$("#body").addClass("login-page");                       
-						$("#MasterContent").removeClass("wrapper");   
-					}
-					$("#MasterContent").html(response[0].content);             
-				},
-				error:function(error){
-					alert("No existe la ruta o el archivo. PENDIENTE.");
-				}
-			}
-		);
-	}
 
 	}]);

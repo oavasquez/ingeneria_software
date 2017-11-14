@@ -166,7 +166,7 @@
             </span>
             </a>
         </li>
-        <li class="active treeview">
+        <li ng-show="ocultarBotonEmpleado" class="active treeview">
             <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span>Gestión de Planilla</span>
@@ -202,7 +202,7 @@
             <li ui-sref="Principal.PermisosExistentes">             <a><i class="fa fa-circle-o"></i> Estado de Solicitudes Existentes</a></li>
             </ul>
         </li>
-        <li class="active treeview">
+        <li ng-show="ocultarBotonEmpleado" class="active treeview">
             <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span>Control de Asistencia</span>
@@ -211,19 +211,19 @@
             </span>
             </a>
             <ul class="treeview-menu">
-            <li ui-sref="Principal.AsistenciaMesActual">    <a><i class="fa fa-circle-o"></i> Mes actual</a></li>
-            <li ui-sref="Principal.BusquedaAsistencia">     <a><i class="fa fa-circle-o"></i> <span>Busqueda por empleado</span></a></li>
-            <li ui-sref="Principal.HistorialAsistencias">    <a><i class="fa fa-circle-o"></i> Historial de asistencias</a></li>
+            <li ng-show="ocultarBotonEmpleado" ui-sref="Principal.AsistenciaMesActual">    <a><i class="fa fa-circle-o"></i> Mes actual</a></li>
+            <li ng-show="ocultarBotonEmpleado" ui-sref="Principal.BusquedaAsistencia">     <a><i class="fa fa-circle-o"></i> <span>Busqueda por empleado</span></a></li>
+            <li ng-show="ocultarBotonEmpleado"ui-sref="Principal.HistorialAsistencias">    <a><i class="fa fa-circle-o"></i> Historial de asistencias</a></li>
             </ul>
         </li>
-        <li ui-sref="Principal.CalendarioPermisos">
+        <li ng-show="ocultarBotonEmpleado" ui-sref="Principal.CalendarioPermisos">
             <a >
             <i  class="fa fa-calendar"></i> <span>Monitoreo de permisos</span>
             </a>
         </li>
-        <li>
+        <li ng-show="ocultarBotonEmpleado">
             <a >
-            <i id="" class="fa fa-calendar"></i> <span>Monitoreo de vacaciones</span>
+            <i class="fa fa-calendar"></i> <span>Monitoreo de vacaciones</span>
             </a>
         </li>
 
@@ -235,7 +235,7 @@
 <!-- Contenido Principal -->
 <div class="content-wrapper">
 <!-- Main content -->
-    <section class="content" id="HomeContent" ui-view>
+    <section ui-view>
 
     </section>
 </div>

@@ -15,8 +15,6 @@ class AsistenciaController extends Controller
       	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
       	return $instanciaPermiso->obtenerTiempoRetraso($resquest);
 
-
-
       }
 
     public function obtenerAsistencia(Request $resquest){

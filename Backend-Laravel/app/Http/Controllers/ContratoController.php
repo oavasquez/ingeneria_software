@@ -36,5 +36,4 @@ class ContratoController extends Controller
 						         	]);      
 
     }
-
-?>
+}

@@ -15,10 +15,17 @@ class VerifyCsrfToken extends Middleware
         'iniciarSesion',
         'obtenerDatosEmpleado',
         'verPlanilla',
-        'encontrarEmpleado',
+        'encontrarContrato',
         'verDeduccion',
         'historialPagos',
         'obtenerSuperiores',
-        'guardarPermiso'
+        'guardarPermiso',
+        'guardarDatosEmpleado',
+        'permisosSinLeer',
+        'obtenerAsistencias',
+        'asistenciaMesActual',
+        'permisosHistorial',
+        'denegarPermiso',
+        'aprobarPermiso'
     ];
 }

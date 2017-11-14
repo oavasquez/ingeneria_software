@@ -33,17 +33,11 @@ class Asistencia extends Model
                         INNER JOIN Contrato AS C
                         ON(A.idContrato=C.idContrato)
                         WHERE A.idEmpleado=? and B.fecha=?',[$resquest->idEmpleado,$resquest->fecha]);
-        if(sql->HEntradaAsistencia > sql->HEntradaContrato){
+        if($sql->HEntradaAsistencia > $sql->HEntradaContrato){
             $tiempoRetrazo=$sql->HEntradaAsistencia - $sql->HEntradaContrato; 
         }
-
-
-
-
         //return $sql;
         return response()->json(['tiempoRestaso' => $tiempoRetrazo]);
-
-
     }
     
 
@@ -53,10 +47,11 @@ class Asistencia extends Model
 
     
     public function obtenerDiasFaltados($resquest){
-        $sql = DB::select('SELECT sum(num_dias) Permisos WHERE idEmpleado=? and estadoPermiso=1 
-                           GROUP BY idEmpleado',[resquest->idEmpleado]);
+        $sql = DB::select('SELECT sum(num_dias), idEmpleado FROM Permisos WHERE idEmpleado=? and estadoPermiso=1 
+                           GROUP BY idEmpleado',[$resquest->idEmpleado]);
 
-        return $sql;
+        $object = (object)$sql;
+        return response()->json($object);                            
     	
     }
 
@@ -69,8 +64,8 @@ class Asistencia extends Model
                             ON(A.idEmpleado=B.idEmpleado)
                             WHERE DATE_FORMAT(A.fecha, "%m")= DATE_FORMAT(CURDATE(),"%m")');
 
-        return $sql;
-        
+        $object = (object)$sql;
+        return response()->json($object); 
     }
 
     public function asistenciasEmpleado($resquest){
@@ -81,9 +76,8 @@ class Asistencia extends Model
                             ON(A.idEmpleado=B.idEmpleado)
                             WHERE A.idEmpleado=?',
                             [$resquest->codigoEmpleado]);
-
-        return $sql;
-        
+        $object = (object)$sql;
+        return response()->json($object); 
     }
     
     public function obtenerAsistencias($resquest){
@@ -93,8 +87,8 @@ class Asistencia extends Model
                             INNER JOIN Empleado AS B
                             ON(A.idEmpleado=B.idEmpleado)');
 
-        return $sql;
-        
+        $object = (object)$sql;
+        return response()->json($object);         
     }
     
     

@@ -10,38 +10,24 @@ use App\Permiso;
 
 class PermisosController extends Controller
 {
-    //
-
 
      public function guardarPermiso(Request $resquest){
 
         //$codigoEmpleado=$resquest->codigo;
         $instanciaPermiso= new Permiso;
-        return $instanciaPermiso->guardarPermiso($resquest);
-        
-        /*$instanciaPermiso->fill(['idPermisos'=>null,
-								 'descrip_permiso'=>$resquest->descripcion,
-								 'fecha_inicio'=>$resquest->diaPermiso,
-								 'fecha_final'=>$resquest->fechaInicios,
-								 'num_dias'=>$resquest->numDias,
-								 'idTipo_Permiso'=>$resquest->idTPermiso,
-								 'idEmpleado'=>$resquest->idEmpleado,
-								 'idResposable'=>$resquest->idResposable,
-								 'estadoPermiso'=>null
-								]);
-        
-        return $instanciaPermiso->save();*/
-        	
+        return $instanciaPermiso->guardarPermiso($resquest); 	
     	
         }
 
       public function aprobarPermiso(Request $resquest){
 
       	$instanciaPermiso= new Permiso;
-      	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
-      	return $instanciaPermiso::where('destination', $resquest->idpermiso)
-				          ->update(['estadoPermiso' => 1]);
-      
+        //$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
+        if( $instanciaPermiso::where('idPermisos', $resquest->idPermiso)->update(['estadoPermiso' => 1]) )
+          return "True";
+        else
+          return "Error";
+      }
 
       public function permisosHistorial(Request $resquest){
 
@@ -50,22 +36,21 @@ class PermisosController extends Controller
         return $instanciaPermiso->permisosHistorial($resquest);
       }
 
-
-
-      }
+      public function permisosSinLeer(Request $resquest){
+        //$codigoEmpleado=$resquest->codigo;
+        $instanciaPermiso= new Permiso;
+        return $instanciaPermiso->permisosSinLeer($resquest);
+      }      
 
       public function denegarPermiso(Request $resquest){
 
-      	$instanciaPermiso= new Permiso;
-      	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
-      	return $instanciaPermiso::where('idPermisos', $resquest->idpermiso)
-      							->update(['estadoPermiso' => 0]);
-
-
-
+        $instanciaPermiso= new Permiso;
+        
+        if( $instanciaPermiso::where('idPermisos', $resquest->idpermiso)->update(['estadoPermiso' => 0]) )
+          return "True";
+        else
+          return "Error";
       }
-
-      permisosHistorial
 
       public function verPermiso(Request $resquest){
 

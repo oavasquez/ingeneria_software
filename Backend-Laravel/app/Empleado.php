@@ -24,7 +24,6 @@ class Empleado extends Model
          'telefono',
          'correo',
          'direccion',
-         'cod_empleado',
          'idCargo',
          'idEncargado',
          'idContrato',
@@ -48,7 +47,8 @@ class Empleado extends Model
                                 on(A.IdContrato=C.IdContrato) 
                                 WHERE A.cod_empleado=?',[$id]);
 
-        return $sql;
+        $object = (object)$sql;
+        return response()->json($object);   
     }
 
     public function iniciarSesion($resquest) {
@@ -64,14 +64,6 @@ class Empleado extends Model
         return response()->json($object);      
     }
 
-
-
-
- public function guardarDatosEmpleado($resquest) {
-    
-
-    
-    }
 
     public function eliminarEmpleado() {
         
