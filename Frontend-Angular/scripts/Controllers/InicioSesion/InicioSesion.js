@@ -4,12 +4,12 @@ angular.module('ProyectoISApp')
 
 	.controller('InicioSesionController', ['$scope','$location','$http','$timeout','$cookies',
 											'ResourceInicioSesionValidar', 'ResourceBuscarContrato', 'ResourceRegistrarEmpleado', 'ResourcePlanillaMes',
-											'ResourceHistorialDeducciones', 'ResourceHistorialPagos', 'ResourceObtenerSuperiores', 'ResourceAsistenciaMesActual',
+											'ResourceHistorialPagos', 'ResourceObtenerSuperiores', 'ResourceAsistenciaMesActual',
 											'ResourceGuardarPermiso', 'ResourcePermisosSinLeer', 'ResourceObtenerAsistencias', 'ResourceAprobarPermiso', 'ResourceDenegarPermiso',
 											'InicializarCookies',
 											function($scope, $location, $http ,$timeout,$cookies,
 											 ResourceInicioSesionValidar, ResourceBuscarContrato, ResourceRegistrarEmpleado, ResourcePlanillaMes,
-											 ResourceHistorialDeducciones, ResourceHistorialPagos, ResourceObtenerSuperiores, ResourceAsistenciaMesActual,
+											 ResourceHistorialPagos, ResourceObtenerSuperiores, ResourceAsistenciaMesActual,
 											 ResourceGuardarPermiso, ResourcePermisosSinLeer, ResourceObtenerAsistencias, ResourceAprobarPermiso, ResourceDenegarPermiso,
 											 InicializarCookies){
 	 
@@ -60,7 +60,7 @@ angular.module('ProyectoISApp')
 		$scope.datos = {
 			codigoEmpleado: 1234
 		}
-		ResourcePlanillaMes.get({}, function(respuesta){
+		ResourcePlanillaMes.query({}, function(respuesta){
 			if(respuesta[0] != undefined){
 				console.log(respuesta[0]);
 			}else{
@@ -69,36 +69,7 @@ angular.module('ProyectoISApp')
 		});
 	}
 	$scope.ProbandoVerPlanillaMes();
-
-	/*VER DEDUCCIONES
-	$scope.ProbandoHistorialDeducciones = function(){
-		$scope.datos = {
-			codigoEmpleado: 1234
-		}
-		ResourceHistorialDeducciones.get({}, function(respuesta){
-			if(respuesta[0] != undefined){
-				console.log(respuesta[0]);
-			}else{
-				alert("ERROR");
-			}
-		});
-	}
-	$scope.ProbandoHistorialDeducciones();		
-*/
-	//HISTORIAL PAGOS
-	$scope.ProbandoHistorialPagos = function(){
-		$scope.datos = {
-			codigoEmpleado: 1234
-		}
-		ResourceHistorialPagos.get({}, function(respuesta){
-			if(respuesta[0] != undefined){
-				console.log(respuesta[0]);
-			}else{
-				alert("ERROR");
-			}
-		});
-	}
-	$scope.ProbandoHistorialPagos();		
+	
 
 	//OBTENER SUPERIORES
 	$scope.ProbandoObtenerSuperiores = function(){

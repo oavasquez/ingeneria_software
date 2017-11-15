@@ -5,7 +5,8 @@
 .sass-cache/
 /nbproject/
 /nbproject/private/
-/node_modules/
+/Frontend-Angular/node_modules/
+/Frontend-Angular/bower_components/
 ad.js
 TODO
 test.html

@@ -64,7 +64,8 @@ angular.module('ProyectoISApp', ['ngResource','ui.router', 'ngCookies'])
 		//PLANILLA
 				.state('Principal.BuscarContrato', {
 					url: '/Planilla/BuscarContrato',
-					templateUrl: 'views/Principal/Planilla/BuscarContrato.html'
+					templateUrl: 'views/Principal/Planilla/BuscarContrato.html',
+					controller: 'BuscarContratoController'
 				})
 				.state('Principal.HistorialDeducciones', {
 					url: '/Planilla/HistorialDeducciones',
@@ -73,7 +74,8 @@ angular.module('ProyectoISApp', ['ngResource','ui.router', 'ngCookies'])
 				})
 				.state('Principal.HistorialPagos', {
 					url: '/Planilla/HistorialPagos',
-					templateUrl: 'views/Principal/Planilla/HistorialPagos.html'
+					templateUrl: 'views/Principal/Planilla/HistorialPagos.html',
+					controller: 'HistorialPagosController'					
 				})				
 				.state('Principal.PlanillaMes', {
 					url: '/Planilla/PlanillaMes',

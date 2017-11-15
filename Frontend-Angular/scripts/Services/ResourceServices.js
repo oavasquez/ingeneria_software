@@ -19,17 +19,41 @@ angular.module('ProyectoISApp')
 
 	//Error: 500 (Internal Server Error)
 	.factory('ResourcePlanillaMes', function($resource){
-		return $resource("http://localhost:8000/verPlanilla");
+		return $resource("http://localhost:8000/verPlanilla", { },
+		{
+			query: {
+				url:"http://localhost:8000/verPlanilla",
+				method: "GET",
+				isArray: true,
+				params: {}
+			}
+		});	
 	})	
 
 	//Funcionando
 	.factory('ResourceHistorialDeducciones', function($resource){
-		return $resource("http://localhost:8000/verDeduccion");
+		return $resource("http://localhost:8000/verDeduccion", { },
+		{
+			query: {
+				url:"http://localhost:8000/verDeduccion",
+				method: "GET",
+				isArray: true,
+				params: {}
+			}
+		});
 	})		
 
 	//Funcionando
 	.factory('ResourceHistorialPagos', function($resource){
-		return $resource("http://localhost:8000/historialPagos");
+		return $resource("http://localhost:8000/historialPagos", { },
+		{
+			query: {
+				url:"http://localhost:8000/historialPagos",
+				method: "GET",
+				isArray: true,
+				params: {}
+			}
+		});		
 	})		
 	
 	//Funcionando
