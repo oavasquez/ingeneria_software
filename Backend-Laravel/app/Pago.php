@@ -60,8 +60,9 @@ class Pago extends Model
                              INNER JOIN Cargo AS D 
                              ON(B.idCargo=D.idCargo)
                              WHERE DATE_FORMAT(fecha_pago,"%m")= DATE_FORMAT(CURDATE(),"%m")');
-            $object = (object)$sql;
-            return response()->json($object);   
+    
+         return json_encode($sql);
+
         }
         
         public function guardarPlanilla(){
@@ -74,9 +75,8 @@ class Pago extends Model
                              FROM Pago AS A
                              INNER JOIN Empleado AS C
                              ON(A.IdEmpleado=C.idEmpleado)');
-            $object = (object)$sql;
-            return response()->json($object);   
 
+         return json_encode($sql);
         }
 
 }
