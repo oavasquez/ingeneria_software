@@ -72,7 +72,7 @@ Route::post('/permisosSinLeer','PermisosController@permisosSinLeer');
 Route::post('/permisosHistorial','PermisosController@permisosHistorial');
 Route::post('/denegarPermiso','PermisosController@denegarPermiso');
 Route::post('/aprobarPermiso','PermisosController@aprobarPermiso');
-
+Route::post('/obtenerTodosPermisos','PermisosController@obtenerTodosPermisos');
 
 //Empleado
 Route::post('/guardarDatosEmpleado','EmpleadoController@guardarDatosEmpleado');
@@ -81,6 +81,8 @@ Route::post('/borrarDatosEmpleado','EmpleadoController@eliminarEmpleado');
 Route::post('/obtenerDatosEmpleado','EmpleadoController@obtenerDatosEmpleado');
 Route::post('/iniciarSesion','EmpleadoController@iniciarSesion');
 Route::post('/obtenerSuperiores','EmpleadoController@obtenerSuperiores');
+
+
 
 //Contrato
 Route::post('/encontrarContrato', "ContratoController@encontrarContrato");

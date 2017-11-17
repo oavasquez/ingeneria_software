@@ -59,6 +59,17 @@ class PermisosController extends Controller
       	return $instanciaPermiso::where('idPermisos', $resquest->idPermiso)->get();
 
       }
+
+      public function obtenerTodosPermisos(Request $resquest){
+
+        $instanciaPermiso= new Permiso
+        return $instanciaPermiso->obtenerTodosPermisos($resquest);
+        //$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
+        
+
+      }
+
+
 /*
       public function eliminarPermiso(Request $resquest){
 

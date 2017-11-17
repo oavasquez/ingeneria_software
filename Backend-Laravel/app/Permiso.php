@@ -53,6 +53,7 @@ class Permiso extends Model
 
      public function permisosHistorial($resquest){
 
+
           $sql = DB::select('SELECT A.idPermisos as CodigoPermiso, 
                              A.idEmpleado as codigoEmpleado, 
                              CONCAT(B.nombre," ",B.apellido) as nombreEmpleado, 
@@ -72,6 +73,16 @@ class Permiso extends Model
 
 
 
+
+     public function obtenerTodosPermisos($resquest){
+        $sql = DB::select('SELECT A.fecha_inicio as fechaInico, A.fecha_final as fechaFinal,
+                             CONCAT(B.nombre," ",B.apellido) AS nombreEmpleado  
+                            FROM Permisos as A
+                            INNER JOIN Empleado B
+                            ON(A.idEmpleado=B.idEmpleado)');
+          return $sql;
+
+     }
 
      public function solicitarPermiso(){
 

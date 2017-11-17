@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+
 class Empleado extends Model
 {
     //
@@ -59,6 +60,30 @@ class Empleado extends Model
                     ON(A.idCargo=B.idCargo) 
                     WHERE nombreUsuario=? AND contrasena=?',
                     [$resquest->nombreUsuario,$resquest->contrasenia]);
+
+        $object = (object)$sql;
+        return response()->json($object);      
+    }
+
+
+
+
+
+ public function guardarDatosEmpleado($resquest) {
+        $instanciaContrato= new Contrato;
+        $idContrato=$instanciaContrato->guardarContrato($resquest);
+        
+        $sql = DB::insert(
+                    'INSERT INTO Empleado(idEmpleado, nombre, apellido, identidad, genero, 
+                                 edad, fecha_nacimiento, telefono, correo, direccion, 
+                                 cod_empleado, idCargo, idEncargado, idContrato, nombreUsuario, 
+                                 contrasena) VALUES (NULL,?,?,?,?,?,str_to_date(?),?,?,?,?,?,?,?,?);',
+                    [$resquest->nombreEmpleado,$resquest->apellidoEmpleado,
+                     $resquest->identidad,$resquest->genero,$resquest->edad,
+                     $resquest->fechaNacimiento,$resquest->telefono,
+                     $resquest->correo,$resquest->direccion,
+                     $resquest->codigoEmpleado, $resquest->cargo,$resquest->codigoEncargado,
+                     $idContrato->scalar, $resquest->nombreUsuario,$resquest->contrasena]);
 
         $object = (object)$sql;
         return response()->json($object);      
