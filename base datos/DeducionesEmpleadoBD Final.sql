@@ -170,16 +170,9 @@ TRUNCATE TABLE `Cargo`;
 
 INSERT INTO `Cargo` (`idCargo`, `nombre_cargo`) VALUES
 (1, 'Gerente'),
-(2, 'Empleado'),
-(3, 'Patron'),
-(4, 'Cargo2'),
-(5, 'Cargo2'),
-(6, 'Cargo2'),
-(7, 'Cargo3'),
-(8, 'Cargo3'),
-(9, 'Cargo3'),
-(10, 'Cargo4'),
-(11, 'Cargo4');
+(2, 'Encargado de Area'),
+(3, 'Empleado'),
+
 
 -- --------------------------------------------------------
 
