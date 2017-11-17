@@ -17,8 +17,6 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
         folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
     <!-- Date Picker -->
     <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <!-- Daterange picker -->
@@ -29,9 +27,9 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" >
   </head>
-  <body ng-app="ProyectoISApp" class="hold-transition skin-black sidebar-mini" id="body">
+  <body ng-app="ProyectoISApp" class="hold-transition skin-black sidebar-mini">
 
-    <div ui-view id="MasterContent">
+    <div ui-view>
 
     </div>
     <!-- ./wrapper -->
@@ -41,6 +39,7 @@
     <script src="components/angular-ui-router.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-cookies.js"></script>
+  
     <!--Archivo routerUI-->
     <script src="scripts/routerUI.js"></script>
     <!--Services Angular/Laravel-->
@@ -54,6 +53,11 @@
         <script src="scripts/Controllers/InicioSesion/Registrarse.js"></script>
        
         <script src="scripts/Controllers/Principal/Principal.js"></script>
+        <script src="scripts/Controllers/Permisos/Permisos.js"></script>
+        <script src="scripts/Controllers/Planilla/HistorialDeducciones.js"></script>
+        <script src="scripts/Controllers/Planilla/HistorialPagos.js"></script>
+        <script src="scripts/Controllers/Planilla/BuscarContrato.js"></script>
+        
         
     <!-- jQuery 3 -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -67,11 +71,10 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!--Ui Bootstrap>
     <script src="components/ui-bootstrap-1.2.3.min.js"></script-->
+    <!--script src="bower_components/angular-cookies/angular-cookies.js"></script-->
+      
     <!-- Sparkline -->
     <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-    <!-- jvectormap -->
-    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
     <!-- jQuery Knob Chart -->
     <script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
     <!-- daterangepicker -->

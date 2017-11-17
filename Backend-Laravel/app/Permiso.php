@@ -14,7 +14,8 @@ class Permiso extends Model
      public $timestamps = false;//para gestion de las tablas
 
 	protected $fillable = 
-	['idPermisos',
+	[
+     'idPermisos',
 	 'descrip_permiso',
 	 'fecha_inicio',
 	 'fecha_final',
@@ -40,16 +41,16 @@ class Permiso extends Model
         $object = (object)$sql;
         return response()->json($object);
      }
-     public function permisosSinLeer($resquest){
 
+     public function permisosSinLeer($resquest){
 
           $sql = DB::select('SELECT count(A.idPermisos) as cantidadPermisos 
                              FROM Permisos as A
                              WHERE A.idResposable=? AND A.estadoPermiso IS NULL ',
                              [$resquest->codigoEmpleado]);
-          return $sql;
-
-     }
+        $object = (object)$sql;
+        return response()->json($object);   
+    }
 
      public function permisosHistorial($resquest){
 
@@ -67,7 +68,8 @@ class Permiso extends Model
                              ON(A.idTipo_Permiso=C.idTipo_Permiso)
                              WHERE A.idResposable=? ',
                              [$resquest->codigoEmpleado]);
-          return $sql;
+        $object = (object)$sql;
+        return response()->json($object);   
 
      }
 

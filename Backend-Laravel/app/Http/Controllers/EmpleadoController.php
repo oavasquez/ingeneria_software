@@ -11,7 +11,7 @@ use App\Empleado;
 class EmpleadoController extends Controller
 {
 
-	    public function EncontrarEmpleado(Request $resquest){
+	    public function encontrarEmpleado(Request $resquest){
 
 	        $codigoEmpleado=$resquest->codigo;
 	        $instanciaEmpleado= new Empleado;
@@ -37,10 +37,9 @@ class EmpleadoController extends Controller
 
 
 	    public function obtenerDatosEmpleado(Request $resquest) {
-
-	    	 $instanciaEmpleado= new Empleado;
-	    	 return $instanciaEmpleado::where('idCargo', $resquest->codigoEmpleado)->get();
-	    	}
+			$instanciaEmpleado= new Empleado;
+			return $instanciaEmpleado::where('idCargo', $resquest->codigoEmpleado)->get();
+		}
     	
 
     	public function permisosSinLeer(Request $resquest) {
@@ -48,10 +47,6 @@ class EmpleadoController extends Controller
     	 $instanciaEmpleado= new Empleado;
     	 return $instanciaEmpleado->permisosSinLeer($resquest);
     	}
-
-
-	    	
-
 
 
 		public function guardarDatosEmpleado(Request $resquest) {
@@ -64,11 +59,10 @@ class EmpleadoController extends Controller
 							         'identidad'=>$resquest->identidad,
 							         'genero'=>null,
 							         'edad'=>null,
-							         'fecha_nacimiento'=>null,
+							         'fecha_nacimiento'=>$resquest->fechaNacimiento,
 							         'telefono'=>$resquest->telefono,
 							         'correo'=>$resquest->correo,
 							         'direccion'=>$resquest->direccion,
-							         'cod_empleado'=>null,
 							         'idCargo'=>$resquest->idCargo,
 							         'idEncargado'=>$resquest->codigoEncargado,
 							         'idContrato'=>null

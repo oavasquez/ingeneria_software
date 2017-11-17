@@ -19,17 +19,41 @@ angular.module('ProyectoISApp')
 
 	//Error: 500 (Internal Server Error)
 	.factory('ResourcePlanillaMes', function($resource){
-		return $resource("http://localhost:8000/verPlanilla");
+		return $resource("http://localhost:8000/verPlanilla", { },
+		{
+			query: {
+				url:"http://localhost:8000/verPlanilla",
+				method: "GET",
+				isArray: true,
+				params: {}
+			}
+		});	
 	})	
 
 	//Funcionando
 	.factory('ResourceHistorialDeducciones', function($resource){
-		return $resource("http://localhost:8000/verDeduccion");
+		return $resource("http://localhost:8000/verDeduccion", { },
+		{
+			query: {
+				url:"http://localhost:8000/verDeduccion",
+				method: "GET",
+				isArray: true,
+				params: {}
+			}
+		});
 	})		
 
 	//Funcionando
 	.factory('ResourceHistorialPagos', function($resource){
-		return $resource("http://localhost:8000/historialPagos");
+		return $resource("http://localhost:8000/historialPagos", { },
+		{
+			query: {
+				url:"http://localhost:8000/historialPagos",
+				method: "GET",
+				isArray: true,
+				params: {}
+			}
+		});		
 	})		
 	
 	//Funcionando
@@ -37,42 +61,39 @@ angular.module('ProyectoISApp')
 		return $resource("http://localhost:8000/obtenerSuperiores");
 	})	
 
-	//Funcionando
+	//Funcionando, dejo de funcionar
 	.factory('ResourceGuardarPermiso', function($resource){
 		return $resource("http://localhost:8000/guardarPermiso");
 	})
 
-	/*
-	Ejemplo con varios parametros
-	//RESOURCES a utilizarse por Brizo
-		//10	Route::get('PerfilLugar/lugar','PerfilLugar@showLugar');
-		.factory('ResourceMostrarPerfilLugar', function($resource){
-			return $resource("http://localhost:8000/PerfilLugar/lugar", { },
-				{
-					get: {
-						url: "http://localhost:8000/PerfilLugar/lugar/:codigoCuenta/visitante/:codigoVisitante", 
-						method: "GET", 
-						params: {codigoCuenta: '@codigoCuenta', codigoVisitante: '@codigoVisitante'} 
-					} 				
-				});
-		})
-	*/
-	/*
-	Ejemplo con un parametro
-		//11	Route::post('PerfilLugar/seguir','PerfilLugar@storeSeguir');
-		.factory('ResourceRegistrarSeguimiento', function($resource){
-			return $resource("http://localhost:8000/PerfilLugar/seguir/:id", {id: "@id"});
-		})
-	*/
-	/*
-	Ejemplo con update
-		//	Route::put('PerfilLugar/Configuracion/Informacion/cat','PerfilLugar@updateCategoria');
-		.factory('ResourceConfLugarInformacionCat', function($resource){
-			return $resource("http://localhost:8000/PerfilLugar/Configuracion/Informacion/cat/:id", {	id: "@id" }, { update: {method: "PUT"} });
-		})
-	*/
+	//Funcionando
+	.factory('ResourcePermisosSinLeer', function($resource){
+		return $resource("http://localhost:8000/permisosSinLeer");
+	})	
 
+	//Funcionando
+	.factory('ResourceObtenerAsistencias', function($resource){
+		return $resource("http://localhost:8000/obtenerAsistencias");
+	})	
 
+	//Funcionando
+	.factory('ResourceAsistenciaMesActual', function($resource){
+		return $resource("http://localhost:8000/asistenciaMesActual");
+	})	
+
+	//Funcionando
+	.factory('ResourceAprobarPermiso', function($resource){
+		return $resource("http://localhost:8000/aprobarPermiso");
+	})		
+
+	//Funcionando
+	.factory('ResourceDenegarPermiso', function($resource){
+		return $resource("http://localhost:8000/denegarPermiso");
+	})		
+
+	.factory('ResourceCuentaLogueada', function($resource){
+		return $resource("http://localhost:8000/denegarPermiso");
+	})
 ;//Final del angular.module
 
 

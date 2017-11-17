@@ -63,20 +63,10 @@ Route::get('/registrarEmpleado', function () {
     return view('pages/register');
 });
 
-//Route::get('/getDatosEmpleado', "EmpleadoController@EncontrarEmpleado");
-/*Route::get('/getDatosEmpleado', function () {
-    return response()->json([
-    'name' => 'Abigail',
-    'state' => 'CA'
-]);
-});
-*/
-
-
 //#########controladores de las vistas y conectados con las clases################
 
 
-//permisos
+//Permisos
 Route::post('/guardarPermiso','PermisosController@guardarPermiso');
 Route::post('/permisosSinLeer','PermisosController@permisosSinLeer');
 Route::post('/permisosHistorial','PermisosController@permisosHistorial');
@@ -85,7 +75,6 @@ Route::post('/aprobarPermiso','PermisosController@aprobarPermiso');
 Route::post('/obtenerTodosPermisos','PermisosController@obtenerTodosPermisos');
 
 //Empleado
-
 Route::post('/guardarDatosEmpleado','EmpleadoController@guardarDatosEmpleado');
 Route::post('/modificarDatosEmpleado','EmpleadoController@modificarEmpleado');
 Route::post('/borrarDatosEmpleado','EmpleadoController@eliminarEmpleado');
@@ -96,12 +85,10 @@ Route::post('/obtenerSuperiores','EmpleadoController@obtenerSuperiores');
 
 
 //Contrato
-
 Route::post('/encontrarContrato', "ContratoController@encontrarContrato");
 Route::post('/modificarContrato', "ContratoController@modificarContrato");
 
-//asistencia
-
+//Asistencia
 Route::post('/obtenerTiempoRetraso', "AsistenciaController@obtenerTiempoRetraso");
 Route::post('/obtenerAsistencia', "AsistenciaController@obtenerAsistencia");
 Route::post('/obtenerDiasFaltados', "AsistenciaController@obtenerDiasFaltados");
@@ -109,17 +96,12 @@ Route::get('/asistenciaMesActual', "AsistenciaController@asistenciaMesActual");
 Route::get('/asistenciasEmpleado', "AsistenciaController@asistenciasEmpleado");
 Route::get('/obtenerAsistencias', "AsistenciaController@obtenerAsistencias");
 
-
-
-
 //Deduciones
-
 Route::post('/aplicarDeduccion', "DeduccionesController@AplicarDeduccion");
 Route::get('/verDeduccion', "DeduccionesController@VerDeduccion");
 Route::post('/eliminarDeduccion', "DeduccionesController@EliminarDeduccion");
 
-//planilla
-
+//Planilla
 Route::post('/verSueldo', "PlanillaController@verSueldo");
 Route::post('/calcularSueldo', "PlanillaController@calcularSueldo");
 Route::get('/verPlanilla', "PlanillaController@verPlanilla");

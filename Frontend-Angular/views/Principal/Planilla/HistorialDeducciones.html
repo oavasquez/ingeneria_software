@@ -1,12 +1,30 @@
+<br><br>
 <div class="col-md-12">
     <div class="box box-primary">
         <div class="box-header with-border">
-        <h3 class="box-title">Historial de deducciones efectuadas</h3>
+            <h3 class="box-title">Historial de deducciones efectuadas</h3>
         </div>
         <div class="box-body">
+            
+            <div class="row">
+            <table class="table">
+                <tr>
+                    <th style="width: 10px">#Cod</th>
+                    <th>Nombre Empleado</th>
+                    <th>Deducccion IHSS</th>
+                    <th>Deducccion RAP</th>
+                    <th>Deduccciones Aportaciones</th>                    
+                </tr>
+                <tr ng-repeat="deduccion in historialDeducciones">
+                    <td>{{deduccion.codDeduccion}}</td>
+                    <td>{{deduccion.nombre}}</td>
+                    <td>{{deduccion.deduccionIHSS}}</td>
+                    <td>{{deduccion.deduccionRAP}}</td>
+                    <td>{{deduccion.deduccionesAport}}</td>
+                </tr>
+            </table>                
+            </div>
 
-            
-            
         </div>
     </div>
 </div>

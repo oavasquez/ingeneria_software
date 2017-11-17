@@ -22,50 +22,60 @@ angular.module('ProyectoISApp', ['ngResource','ui.router', 'ngCookies'])
 			.state('Principal', {
 				url:'/Principal',
 				templateUrl: 'views/Principal/Home.html',
-				controller: 'PrincipalController'
+				controller: 'PrincipalControllerr'
 			})
 		//PERMISOS
 				.state('Principal.PermisoPorDia', {
 					url: '/Solicitudes/PermisoPorDia',
-					templateUrl: 'views/Principal/Solicitudes/SolicitudPorDia.html'
+					templateUrl: 'views/Principal/Solicitudes/SolicitudPorDia.html',
+					controller: 'PermisosController'
 				})
 				.state('Principal.PermisoPorDuelo', {
 					url: '/Solicitudes/PermisoPorDuelo',
-					templateUrl: 'views/Principal/Solicitudes/SolicitudPorDuelo.html'
+					templateUrl: 'views/Principal/Solicitudes/SolicitudPorDuelo.html',
+					controller: 'PermisosController'					
 				})
 				.state('Principal.PermisoPorMaternidad', {
 					url: '/Solicitudes/PermisoPorMaternidad',
-					templateUrl: 'views/Principal/Solicitudes/SolicitudPorMaternidad.html'
+					templateUrl: 'views/Principal/Solicitudes/SolicitudPorMaternidad.html',
+					controller: 'PermisosController'					
 				})
 				.state('Principal.PermisoPorMatrimonio', {
 					url: '/Solicitudes/PermisoPorDia',
-					templateUrl: 'views/Principal/Solicitudes/SolicitudPorMatrimonio.html'
+					templateUrl: 'views/Principal/Solicitudes/SolicitudPorMatrimonio.html',
+					controller: 'PermisosController'					
 				})
 				.state('Principal.PermisoPorSalida', {
 					url: '/Solicitudes/PermisoPorSalida',
-					templateUrl: 'views/Principal/Solicitudes/SolicitudPorSalida.html'
+					templateUrl: 'views/Principal/Solicitudes/SolicitudPorSalida.html',
+					controller: 'PermisosController'					
 				})
 				.state('Principal.PermisoPorIncapacidadMedica', {
 					url: '/Solicitudes/PermisoPorIncapacidadMedica',
-					templateUrl: 'views/Principal/Solicitudes/SolicitudExcusaMedica.html'
+					templateUrl: 'views/Principal/Solicitudes/SolicitudExcusaMedica.html',
+					controller: 'PermisosController'					
 				})
 				.state('Principal.PermisosExistentes', {
 					url: '/Solicitudes/PermisosExistentes',
-					templateUrl: 'views/Principal/Solicitudes/SolicitudesExistentes.html'
+					templateUrl: 'views/Principal/Solicitudes/SolicitudesExistentes.html',
+					controller: 'PermisosController'					
 				})
 				
 		//PLANILLA
 				.state('Principal.BuscarContrato', {
 					url: '/Planilla/BuscarContrato',
-					templateUrl: 'views/Principal/Planilla/BuscarContrato.html'
+					templateUrl: 'views/Principal/Planilla/BuscarContrato.html',
+					controller: 'BuscarContratoController'
 				})
 				.state('Principal.HistorialDeducciones', {
 					url: '/Planilla/HistorialDeducciones',
-					templateUrl: 'views/Principal/Planilla/HistorialDeducciones.html'
+					templateUrl: 'views/Principal/Planilla/HistorialDeducciones.html',
+					controller: 'HistorialDeduccionesController'
 				})
 				.state('Principal.HistorialPagos', {
 					url: '/Planilla/HistorialPagos',
-					templateUrl: 'views/Principal/Planilla/HistorialPagos.html'
+					templateUrl: 'views/Principal/Planilla/HistorialPagos.html',
+					controller: 'HistorialPagosController'					
 				})				
 				.state('Principal.PlanillaMes', {
 					url: '/Planilla/PlanillaMes',

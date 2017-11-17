@@ -57,5 +57,8 @@
     "raphael": "^2.2.7",
     "select2": "^4.0.3",
     "slimscroll": "^0.9.1"
+  },
+  "scripts": {
+    "start": "http-server -a 127.0.0.1 -p 8080"
   }
 }

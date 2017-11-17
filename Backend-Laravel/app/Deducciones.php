@@ -3,8 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Support\Facades\DB;
+//use Illuminate\Support\Facades\DB;
+use DB;
+use PDO;
+use stdClass;
 
 class Deducciones extends Model
 {
@@ -66,8 +69,7 @@ class Deducciones extends Model
              INNER JOIN Empleado AS C
              ON(B.IdEmpleado=C.idEmpleado)');
              
-     $object = (object)$sql;
-     return response()->json($object);
+     return json_encode($sql);
     }
 
 

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use App\Contrato;
+
 
 class Empleado extends Model
 {
@@ -25,7 +25,6 @@ class Empleado extends Model
          'telefono',
          'correo',
          'direccion',
-         'cod_empleado',
          'idCargo',
          'idEncargado',
          'idContrato',
@@ -49,7 +48,8 @@ class Empleado extends Model
                                 on(A.IdContrato=C.IdContrato) 
                                 WHERE A.cod_empleado=?',[$id]);
 
-        return $sql;
+        $object = (object)$sql;
+        return response()->json($object);   
     }
 
     public function iniciarSesion($resquest) {
@@ -68,9 +68,10 @@ class Empleado extends Model
 
 
 
+
  public function guardarDatosEmpleado($resquest) {
         $instanciaContrato= new Contrato;
-        $idContrato=$instanciaContrato->guardarContrato($resquest)
+        $idContrato=$instanciaContrato->guardarContrato($resquest);
         
         $sql = DB::insert(
                     'INSERT INTO Empleado(idEmpleado, nombre, apellido, identidad, genero, 
@@ -87,6 +88,7 @@ class Empleado extends Model
         $object = (object)$sql;
         return response()->json($object);      
     }
+
 
     public function eliminarEmpleado() {
         

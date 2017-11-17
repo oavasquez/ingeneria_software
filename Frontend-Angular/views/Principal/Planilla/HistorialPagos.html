@@ -1,12 +1,30 @@
+<br><br>
 <div class="col-md-12">
-        <div class="box box-primary">
-            <div class="box-header with-border">
+    <div class="box box-primary">
+        <div class="box-header with-border">
             <h3 class="box-title">Historial de Pagos</h3>
-            </div>
-            <div class="box-body">
-    
+        </div>
+        <div class="box-body">
+
+            <table class="table">
+                <tr>
+                    <th style="width: 10px">#CodPago</th>
+                    <th>Nombre Empleado</th>
+                    <th>Fecha Pago</th>
+                    <th>Total Deducciones</th>
+                    <th>Total Pago</th>                    
+                </tr>
+                <tr>
+                <tr ng-repeat="pago in historialPagos">
+                    <td>{{pago.codPago}}</td>
+                    <td>{{pago.nombreEmpleado}}</td>
+                    <td>{{pago.fechaPago}}</td>
+                    <td>{{pago.deducciones}}</td>
+                    <td>{{pago.totalPago}}</td>
+                </tr>
+                </tr>
+            </table>
                 
-                
-            </div>
         </div>
     </div>
+</div>
