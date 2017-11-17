@@ -50,9 +50,7 @@ class Asistencia extends Model
         $sql = DB::select('SELECT sum(num_dias), idEmpleado FROM Permisos WHERE idEmpleado=? and estadoPermiso=1 
                            GROUP BY idEmpleado',[$resquest->idEmpleado]);
 
-        $object = (object)$sql;
-        return response()->json($object);                            
-    	
+        return json_encode($sql);                         
     }
 
 
@@ -64,8 +62,7 @@ class Asistencia extends Model
                             ON(A.idEmpleado=B.idEmpleado)
                             WHERE DATE_FORMAT(A.fecha, "%m")= DATE_FORMAT(CURDATE(),"%m")');
 
-        $object = (object)$sql;
-        return response()->json($object); 
+     return json_encode($sql);
     }
 
     public function asistenciasEmpleado($resquest){
@@ -76,8 +73,7 @@ class Asistencia extends Model
                             ON(A.idEmpleado=B.idEmpleado)
                             WHERE A.idEmpleado=?',
                             [$resquest->codigoEmpleado]);
-        $object = (object)$sql;
-        return response()->json($object); 
+     return json_encode($sql);
     }
     
     public function obtenerAsistencias($resquest){
@@ -87,8 +83,7 @@ class Asistencia extends Model
                             INNER JOIN Empleado AS B
                             ON(A.idEmpleado=B.idEmpleado)');
 
-        $object = (object)$sql;
-        return response()->json($object);         
+     return json_encode($sql);     
     }
     
     

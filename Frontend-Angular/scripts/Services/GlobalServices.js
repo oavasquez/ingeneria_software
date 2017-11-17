@@ -12,4 +12,21 @@ angular.module('ProyectoISApp')
 
 		return null;
 	}])
+	
+	.service('CurrentSolicitudService', function() {
+		var solicitud;
+	
+		var setCurrentSolicitud = function(newSolicitud) {
+			solicitud = newSolicitud;
+		}
+	
+		var getCurrentSolicitud = function(){
+			return solicitud;
+		}
+	
+		return {
+			setCurrentSolicitud: setCurrentSolicitud,
+			getCurrentSolicitud: getCurrentSolicitud
+		};
+	});
 ;

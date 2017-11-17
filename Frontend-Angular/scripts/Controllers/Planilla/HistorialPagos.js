@@ -9,11 +9,11 @@ angular.module('ProyectoISApp')
 	$scope.tipoCuenta = $cookies.get('CookieTipoCuenta');
     
 	$scope.historialPagos = []; 
+	$scope.buscarPago;
 
 	function ObtenerPagos(){
 
 		ResourceHistorialPagos.query({}, function(respuesta){
-			console.log(respuesta);
 			for (var i=0; i<respuesta.length; i++){
 				$scope.historialPagos.push({
 					codPago: respuesta[i].idPago,

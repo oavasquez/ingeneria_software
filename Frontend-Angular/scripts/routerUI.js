@@ -58,9 +58,14 @@ angular.module('ProyectoISApp', ['ngResource','ui.router', 'ngCookies'])
 				.state('Principal.PermisosExistentes', {
 					url: '/Solicitudes/PermisosExistentes',
 					templateUrl: 'views/Principal/Solicitudes/SolicitudesExistentes.html',
-					controller: 'PermisosController'					
+					controller: 'PermisosHistorialController'					
 				})
-				
+				.state('Principal.VerSolicitud', {
+					url: '/Solicitudes/VerSolicitud',
+					templateUrl: 'views/Principal/Solicitudes/VerSolicitud.html',
+					controller: 'VerSolicitudController'					
+				})
+
 		//PLANILLA
 				.state('Principal.BuscarContrato', {
 					url: '/Planilla/BuscarContrato',
@@ -79,7 +84,8 @@ angular.module('ProyectoISApp', ['ngResource','ui.router', 'ngCookies'])
 				})				
 				.state('Principal.PlanillaMes', {
 					url: '/Planilla/PlanillaMes',
-					templateUrl: 'views/Principal/Planilla/PlanillaMes.html'
+					templateUrl: 'views/Principal/Planilla/PlanillaMes.html',
+					controller: 'PlanillaMesController'
 				})
 				.state('Principal.ImprimirComprobantePago', {
 					url: '/Planilla/ImprimirComprobantePago',
@@ -92,15 +98,18 @@ angular.module('ProyectoISApp', ['ngResource','ui.router', 'ngCookies'])
 		//Asistencias
 				.state('Principal.AsistenciaMesActual', {
 					url: '/Asistencias/AsistenciaDelMes',
-					templateUrl: 'views/Principal/Asistencias/AsistenciaMesActual.html'
+					templateUrl: 'views/Principal/Asistencias/AsistenciaMesActual.html',
+					controller: 'AsistenciaMesController'
 				})
 				.state('Principal.BusquedaAsistencia', {
 					url: '/Asistencias/BusquedaAsistencia',
-					templateUrl: 'views/Principal/Asistencias/BusquedaAsistencia.html'
+					templateUrl: 'views/Principal/Asistencias/BusquedaAsistencia.html',
+					controller: 'BusquedaAsistenciaController'
 				})
 				.state('Principal.HistorialAsistencias', {
 					url: '/Asistencias/HistorialAsistencias',
-					templateUrl: 'views/Principal/Asistencias/HistorialAsistencias.html'
+					templateUrl: 'views/Principal/Asistencias/HistorialAsistencias.html',
+					controller: 'HistorialAsistenciasController'
 				})
 
 

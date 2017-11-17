@@ -19,10 +19,10 @@
             <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-envelope-o"></i>
-                <span class="label label-success">1</span>
+                <span class="label label-success">0</span>
             </a>
             <ul class="dropdown-menu">
-                <li class="header">Tienes 1 mensaje</li>
+                <li class="header">Tienes 0 mensaje</li>
                 <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
@@ -46,68 +46,21 @@
             </li>
             <!-- Notifications: style can be found in dropdown.less -->
             <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-bell-o"></i>
-                <span class="label label-warning">2</span>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header">Tienes 2 notificaciones</li>
-                <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                    <li>
-                    <a href="#">
-                        <i class="fa fa-users text-aqua"></i> ¡Hoy regresa Paquito de vacaciones!
-                    </a>
-                    </li>
-                    <li>
-                    <a href="#">
-                        <i class="fa fa-users text-aqua"></i> Aceptación de permiso de XXX empleado. Verificar y notificar.
-                    </a>
-                    </li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-bell-o"></i>
+                    <span class="label label-warning">{{permisosPendientes.cantidadPermisos}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header">Tienes {{permisosPendientes.cantidadPermisos}} permisos pendientes</li>
+                    <li class="footer"><a ng-click="goToSolicitudesExistentes()">Ver todos</a></li>
                 </ul>
-                </li>
-                <li class="footer"><a href="#">Ver todos</a></li>
-            </ul>
             </li>
-            <!-- Tasks: style can be found in dropdown.less -->
-            <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-flag-o"></i>
-                <span class="label label-danger">1</span>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header">Tienes 1 tarea</li>
-                <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                    <li><!-- Task item -->
-                    <a href="#">
-                        <h3>
-                        Responder a permisos
-                        <small class="pull-right">20%</small>
-                        </h3>
-                        <div class="progress xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                            <span class="sr-only">20% Completado</span>
-                        </div>
-                        </div>
-                    </a>
-                    </li>
-                    <!-- end task item -->
-                </ul>
-                </li>
-                <li class="footer">
-                <a href="#">Ver todos</a>
-                </li>
-            </ul>
-            </li>
+
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="dist/img/avatar04.png" class="user-image" alt="User Image">
-                <span class="hidden-xs">Admin</span>
+                <span class="hidden-xs">{{Cuenta.nombreUsuario}}</span>
             </a>
             <ul class="dropdown-menu">
                 <!-- User image -->
@@ -115,8 +68,8 @@
                 <img src="dist/img/avatar04.png" class="img-circle" alt="User Image">
 
                 <p>
-                    Administrador
-                    <small>Francisco Morazán</small>
+                    {{Cuenta.nombreUsuario}}
+                    <small>{{Cuenta.cargo}}</small>
                 </p>
                 </li>
 
@@ -150,8 +103,8 @@
             <img src="dist/img/avatar04.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-            <p>Administrador</p>
-            <!--a href="#"><i class="fa fa-circle text-success"></i> Online</a-->
+            <p>Empleado: # {{Cuenta.codigoEmpleado}}</p>
+            <a><i class="fa fa-circle text-success"></i>{{Cuenta.cargo}}</a>
         </div>
         </div>
 
@@ -166,7 +119,7 @@
             </span>
             </a>
         </li>
-        <li ng-show="ocultarBotonEmpleado" class="active treeview">
+        <li ng-show="mostrarAdmin" class="active treeview">
             <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span>Gestión de Planilla</span>
@@ -193,16 +146,16 @@
             </span>
             </a>
             <ul class="treeview-menu" id="MenuPermisos">
-            <li ui-sref="Principal.PermisoPorDia">                  <a><i class="fa fa-circle-o"></i> Por día</a></li>
-            <li ui-sref="Principal.PermisoPorSalida">               <a><i class="fa fa-circle-o"></i> Pase de salida</a></li>
-            <li ui-sref="Principal.PermisoPorDuelo">                <a><i class="fa fa-circle-o"></i> Por duelo</a></li>
-            <li ui-sref="Principal.PermisoPorMatrimonio">           <a><i class="fa fa-circle-o"></i> Por matrimonio</a></li>
-            <li ui-sref="Principal.PermisoPorIncapacidadMedica">    <a><i class="fa fa-circle-o"></i> Por incapacidad médica</a></li>
-            <li ui-sref="Principal.PermisoPorMaternidad">           <a><i class="fa fa-circle-o"></i> Por maternidad</a></li>
-            <li ui-sref="Principal.PermisosExistentes">             <a><i class="fa fa-circle-o"></i> Estado de Solicitudes Existentes</a></li>
+            <li ng-show="mostrarEmpleado" ui-sref="Principal.PermisoPorDia">                  <a><i class="fa fa-circle-o"></i> Por día</a></li>
+            <li ng-show="mostrarEmpleado" ui-sref="Principal.PermisoPorSalida">               <a><i class="fa fa-circle-o"></i> Pase de salida</a></li>
+            <li ng-show="mostrarEmpleado" ui-sref="Principal.PermisoPorDuelo">                <a><i class="fa fa-circle-o"></i> Por duelo</a></li>
+            <li ng-show="mostrarEmpleado" ui-sref="Principal.PermisoPorMatrimonio">           <a><i class="fa fa-circle-o"></i> Por matrimonio</a></li>
+            <li ng-show="mostrarEmpleado" ui-sref="Principal.PermisoPorIncapacidadMedica">    <a><i class="fa fa-circle-o"></i> Por incapacidad médica</a></li>
+            <li ng-show="mostrarEmpleado" ui-sref="Principal.PermisoPorMaternidad">           <a><i class="fa fa-circle-o"></i> Por maternidad</a></li>
+            <li ng-show="mostrarAdmin" ui-sref="Principal.PermisosExistentes">             <a><i class="fa fa-circle-o"></i> Estado de Solicitudes Existentes</a></li>
             </ul>
         </li>
-        <li ng-show="ocultarBotonEmpleado" class="active treeview">
+        <li ng-show="mostrarAdmin" class="active treeview">
             <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span>Control de Asistencia</span>
@@ -211,17 +164,17 @@
             </span>
             </a>
             <ul class="treeview-menu">
-            <li ng-show="ocultarBotonEmpleado" ui-sref="Principal.AsistenciaMesActual">    <a><i class="fa fa-circle-o"></i> Mes actual</a></li>
-            <li ng-show="ocultarBotonEmpleado" ui-sref="Principal.BusquedaAsistencia">     <a><i class="fa fa-circle-o"></i> <span>Busqueda por empleado</span></a></li>
-            <li ng-show="ocultarBotonEmpleado"ui-sref="Principal.HistorialAsistencias">    <a><i class="fa fa-circle-o"></i> Historial de asistencias</a></li>
+            <li ui-sref="Principal.AsistenciaMesActual">    <a><i class="fa fa-circle-o"></i> Mes actual</a></li>
+            <li ui-sref="Principal.BusquedaAsistencia">     <a><i class="fa fa-circle-o"></i> <span>Busqueda por empleado</span></a></li>
+            <li ui-sref="Principal.HistorialAsistencias">    <a><i class="fa fa-circle-o"></i> Historial de asistencias</a></li>
             </ul>
         </li>
-        <li ng-show="ocultarBotonEmpleado" ui-sref="Principal.CalendarioPermisos">
+        <li ng-show="mostrarAdmin" ui-sref="Principal.CalendarioPermisos">
             <a >
             <i  class="fa fa-calendar"></i> <span>Monitoreo de permisos</span>
             </a>
         </li>
-        <li ng-show="ocultarBotonEmpleado">
+        <li ng-show="mostrarAdmin">
             <a >
             <i class="fa fa-calendar"></i> <span>Monitoreo de vacaciones</span>
             </a>

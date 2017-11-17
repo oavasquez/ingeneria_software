@@ -23,8 +23,10 @@
     <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
-    <!-- Google Font -->
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css">
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+      <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" >
   </head>
   <body ng-app="ProyectoISApp" class="hold-transition skin-black sidebar-mini">
@@ -53,10 +55,19 @@
         <script src="scripts/Controllers/InicioSesion/Registrarse.js"></script>
        
         <script src="scripts/Controllers/Principal/Principal.js"></script>
+
         <script src="scripts/Controllers/Permisos/Permisos.js"></script>
+        <script src="scripts/Controllers/Permisos/PermisosHistorial.js"></script>
+        <script src="scripts/Controllers/Permisos/VerSolicitud.js"></script>
+        
         <script src="scripts/Controllers/Planilla/HistorialDeducciones.js"></script>
         <script src="scripts/Controllers/Planilla/HistorialPagos.js"></script>
         <script src="scripts/Controllers/Planilla/BuscarContrato.js"></script>
+        <script src="scripts/Controllers/Planilla/PlanillaMesController.js"></script>
+        
+        <script src="scripts/Controllers/Asistencias/AsistenciaMesActualController.js"></script>
+        <script src="scripts/Controllers/Asistencias/BusquedaAsistenciaController.js"></script>
+        <script src="scripts/Controllers/Asistencias/HistorialAsistenciasController.js"></script>
         
         
     <!-- jQuery 3 -->
@@ -93,7 +104,9 @@
     <!-- fullCalendar -->
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    
+    <!-- DataTables -->
+    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
   </body>
 </html>

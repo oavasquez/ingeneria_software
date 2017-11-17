@@ -1,11 +1,64 @@
+<br><br>
 <div class="col-md-12">
     <div class="box box-primary">
-      <div class="box-header with-border">
-        <h3 class="box-title">Registro de Solicitudes Actuales Existentes</h3>
-      </div>
-      <div class="box-body">
+        <div class="box-header with-border">
+            <h3 class="box-title">Solicitudes de Permisos Existentes</h3>
+            <div class="box-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" ng-model="buscarPermiso" class="form-control pull-right" placeholder="Buscar">
+              </div>
+            </div>            
+        </div>
+        <div class="box-body">
             
-      </div>
+            <div class="row">
+                <table id="dataPermisos" class="table">
+                    <tr>
+                      <th style="width: 180px">Opciones</th>
+                      <th style="width: 10px">#Perm</th>
+                      <th style="width: 10px">#Emp</th>
+                      <th style="width: 180px">Nombre Empleado</th>
+                      <th style="width: 180px">Tipo Permiso</th>
+                      <th style="width: 100px">para Dia</th>
+                      <th style="width: 500px">Descripcion</th>
+                      <th style="width: 80px">Estado</th>
+                    </tr>
+                    <tr ng-repeat="permiso in historialPermisos | filter:buscarPermiso">
+                      <td>
+                        <button type="button" class="btn btn-success btn-flat" style="width: 40px" disabled>
+                          <i class="fa fa-check"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-flat" style="width: 40px" disabled>
+                          <i class="fa fa-close"></i>
+                        </button>
+                        <button type="button" class="btn btn-warning" style="width: 40px" ng-click="verSolicitud(permiso)">
+                          <i class="fa fa-search"></i>
+                        </button>      
+                      </td>
+                      <td>{{permiso.codPermiso}}</td>
+                      <td>{{permiso.codEmpleado}}</td>
+                      <td>{{permiso.nombreEmpleado}}</td>
+                      <td>{{permiso.tipoPermiso}}</td>
+                      <td>{{permiso.dia}}</td>
+                      <td>{{permiso.descripcion}}</td>
+                      <td>{{permiso.estado}}</td>
+                    </tr>
+                </table>                
+            </div>
+
+        </div>
     </div>
-    <!-- /.box -->
-  </div>
+</div>
+
+<script>
+    $(function(){
+      $('#dataPermisos').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
+    })
+  </script>

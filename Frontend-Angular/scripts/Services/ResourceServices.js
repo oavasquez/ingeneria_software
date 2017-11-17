@@ -73,12 +73,28 @@ angular.module('ProyectoISApp')
 
 	//Funcionando
 	.factory('ResourceObtenerAsistencias', function($resource){
-		return $resource("http://localhost:8000/obtenerAsistencias");
+		return $resource("http://localhost:8000/obtenerAsistencias", { },
+		{
+			query: {
+				url:"http://localhost:8000/obtenerAsistencias",
+				method: "GET",
+				isArray: true,
+				params: {}
+			}
+		});	
 	})	
 
 	//Funcionando
 	.factory('ResourceAsistenciaMesActual', function($resource){
-		return $resource("http://localhost:8000/asistenciaMesActual");
+		return $resource("http://localhost:8000/asistenciaMesActual", { },
+		{
+			query: {
+				url:"http://localhost:8000/asistenciaMesActual",
+				method: "GET",
+				isArray: true,
+				params: {}
+			}
+		});	
 	})	
 
 	//Funcionando
@@ -89,7 +105,19 @@ angular.module('ProyectoISApp')
 	//Funcionando
 	.factory('ResourceDenegarPermiso', function($resource){
 		return $resource("http://localhost:8000/denegarPermiso");
-	})		
+	})
+
+	.factory('ResourcePermisosHistorial', function($resource){
+		return $resource("http://localhost:8000/permisosHistorial", { },
+		{
+			save: {
+				url:"http://localhost:8000/permisosHistorial",
+				method: "POST",
+				isArray: true,
+				params: {}
+			}
+		});	
+	})
 
 	.factory('ResourceCuentaLogueada', function($resource){
 		return $resource("http://localhost:8000/denegarPermiso");

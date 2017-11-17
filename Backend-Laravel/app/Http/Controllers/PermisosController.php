@@ -46,7 +46,7 @@ class PermisosController extends Controller
 
         $instanciaPermiso= new Permiso;
         
-        if( $instanciaPermiso::where('idPermisos', $resquest->idpermiso)->update(['estadoPermiso' => 0]) )
+        if( $instanciaPermiso::where('idPermisos', $resquest->idPermiso)->update(['estadoPermiso' => 0]) )
           return "True";
         else
           return "Error";
@@ -56,7 +56,7 @@ class PermisosController extends Controller
 
       	$instanciaPermiso= new Permiso;
       	//$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
-      	return $instanciaPermiso::where('idPermisos', $resquest->idpermiso)->get();
+      	return $instanciaPermiso::where('idPermisos', $resquest->idPermiso)->get();
 
       }
 /*

@@ -9,6 +9,7 @@ angular.module('ProyectoISApp')
 	$scope.tipoCuenta = $cookies.get('CookieTipoCuenta');
     
 	$scope.historialDeducciones = []; 
+	$scope.buscarDeduccion;
 
 
 	function obtenerDeducciones(){

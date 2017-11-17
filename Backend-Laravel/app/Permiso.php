@@ -38,8 +38,7 @@ class Permiso extends Model
                                             $resquest->tipoPermiso,
                                             $resquest->codigoEmpleado,
                                             $resquest->codigoSuperior]);
-        $object = (object)$sql;
-        return response()->json($object);
+         return json_encode($sql);
      }
 
      public function permisosSinLeer($resquest){
@@ -67,9 +66,7 @@ class Permiso extends Model
                              ON(A.idTipo_Permiso=C.idTipo_Permiso)
                              WHERE A.idResposable=? ',
                              [$resquest->codigoEmpleado]);
-        $object = (object)$sql;
-        return response()->json($object);   
-
+         return json_encode($sql);
      }
 
 

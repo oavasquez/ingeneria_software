@@ -1,12 +1,36 @@
+<br><br>
 <div class="col-md-12">
-        <div class="box box-primary">
-            <div class="box-header with-border">
-            <h3 class="box-title">Registro de asistencia del mes actual</h3>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Registro de Asistencia del mes actual</h3>
+            <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" ng-model="buscarAsistencia" class="form-control pull-right" placeholder="Buscar">
+                </div>
+            </div>            
+                  
+        </div>
+        <div class="box-body">
+            
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>Nombre Empleado</th>
+                        <th>Fecha Asistencia</th>
+                        <th>hora Entrada</th>
+                        <th>hora Salida</th>
+                        <th>estado</th>                    
+                    </tr>
+                    <tr ng-repeat="asistencia in historialAsistenciaMes | filter:buscarAsistencia">
+                        <td>{{asistencia.nombreEmpleado}}</td>
+                        <td>{{asistencia.fecha}}</td>
+                        <td>{{asistencia.horaEntrada}}</td>
+                        <td>{{asistencia.horaSalida}}</td>
+                        <td>{{asistencia.estado}}</td>
+                    </tr>
+                </table>               
             </div>
-            <div class="box-body">
-    
-                
-                
-            </div>
+
         </div>
     </div>
+</div>
