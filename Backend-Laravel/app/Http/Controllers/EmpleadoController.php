@@ -56,6 +56,7 @@ class EmpleadoController extends Controller
 
 		public function guardarDatosEmpleado(Request $resquest) {
 		 	$instanciaEmpleado= new Empleado;
+		 	/*
 	        $instanciaEmpleado->fill(
 	        						['idEmpleado'=>null,
 							         'nombre'=>$resquest->nombre,
@@ -74,6 +75,7 @@ class EmpleadoController extends Controller
 							        ]);
 	        
 	        return $instanciaEmpleado->save();
+	        */
 		      
 		    }
 

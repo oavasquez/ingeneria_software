@@ -43,7 +43,7 @@ class Permiso extends Model
      public function permisosSinLeer($resquest){
 
 
-          $sql = DB::insert('SELECT count(A.idPermisos) as cantidadPermisos 
+          $sql = DB::select('SELECT count(A.idPermisos) as cantidadPermisos 
                              FROM Permisos as A
                              WHERE A.idResposable=? AND A.estadoPermiso IS NULL ',
                              [$resquest->codigoEmpleado]);
@@ -54,7 +54,7 @@ class Permiso extends Model
      public function permisosHistorial($resquest){
 
 
-          $sql = DB::insert('SELECT A.idPermisos as CodigoPermiso, 
+          $sql = DB::select('SELECT A.idPermisos as CodigoPermiso, 
                              A.idEmpleado as codigoEmpleado, 
                              CONCAT(B.nombre," ",B.apellido) as nombreEmpleado, 
                              A.fecha_inicio as diaPermiso,
@@ -74,6 +74,16 @@ class Permiso extends Model
 
 
 
+
+     public function obtenerTodosPermisos($resquest){
+        $sql = DB::select('SELECT A.fecha_inicio as fechaInico, A.fecha_final as fechaFinal,
+                             CONCAT(B.nombre," ",B.apellido) AS nombreEmpleado  
+                            FROM Permisos as A
+                            INNER JOIN Empleado B
+                            ON(A.idEmpleado=B.idEmpleado)');
+          return $sql;
+
+     }
 
      public function solicitarPermiso(){
 

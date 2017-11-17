@@ -40,4 +40,18 @@ class Contrato extends Model
         $object = (object)$sql;
         return response()->json($object);
     }
+
+    public function guardarContrato($resquest) {
+       $sql= DB::table('Contrato')->insertGetId([ 'idContrato' => NULL, 
+                                                  'TipoContrato' => $resquest->tipoContrato,
+                                                  'horaEntrada' =>$resquest->horaEntrada ,
+                                                  'horaSalida' => $resquest->horaSalida,
+                                                  'diasDeTrabajo' => $resquest->diasDeTrabajo,
+                                                  'fechaContratacion' => $resquest->fechaContratacion,
+                                                  'sueldo' => $resquest->sueldo]);
+        $object = (object)$sql;
+        return response()->json($object); 
+
+        
+    }
 }
