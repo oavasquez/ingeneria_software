@@ -27,10 +27,8 @@ class Contrato extends Model
        $sql = DB::select(
                         'SELECT A.idEmpleado AS codigoEmpleado, 
                                 CONCAT(A.nombre," ", A.apellido) as nombreEmpleado, 
-                                C.nombre_cargo AS cargo, B.sueldo, B.horaEntrada, B.horaSalida  
+                                C.nombre_cargo AS cargo, A.sueldo, A.horaEntrada, A.horaSalida  
                         FROM Empleado AS A 
-                        INNER JOIN Contrato AS B 
-                        ON(A.idContrato=B.idContrato) 
                         INNER JOIN Cargo as C 
                         ON(A.idCargo=C.idCargo) 
                         WHERE A.idEmpleado=?',

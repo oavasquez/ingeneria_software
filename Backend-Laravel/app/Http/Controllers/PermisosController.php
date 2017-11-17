@@ -62,11 +62,8 @@ class PermisosController extends Controller
 
       public function obtenerTodosPermisos(Request $resquest){
 
-        $instanciaPermiso= new Permiso
+        $instanciaPermiso= new Permiso;
         return $instanciaPermiso->obtenerTodosPermisos($resquest);
-        //$instanciaPermiso->aprobarPermiso($resquest->idpermiso);
-        
-
       }
 
 
