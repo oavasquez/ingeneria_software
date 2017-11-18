@@ -116,7 +116,8 @@ angular.module('ProyectoISApp', ['ngResource','ui.router', 'ngCookies'])
 		//CALENDARIOS
 				.state('Principal.CalendarioPermisos', {
 					url: 'Calendarios/CalendarioPermisos',
-					templateUrl: 'views/Principal/Calendarios/CalendarioPermisos.html'
+					templateUrl: 'views/Principal/Calendarios/CalendarioPermisos.html',
+					controller: "CalendarioPermisosController"
 				})
 
 	}]);

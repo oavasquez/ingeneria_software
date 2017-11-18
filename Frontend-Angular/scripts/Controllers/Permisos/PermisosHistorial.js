@@ -11,7 +11,7 @@ angular.module('ProyectoISApp')
         codigoEmpleado: $cookies.get('CookieCuenta')
     }
 
-	$scope.ObtenerAsistencias = function(){
+	$scope.ObtenerPermisos = function(){
 		ResourcePermisosHistorial.save($scope.datos, function(respuesta){
 			for (var i=0; i<respuesta.length; i++){
                 $scope.estado;
@@ -36,7 +36,7 @@ angular.module('ProyectoISApp')
 			}
 		});
 	}
-    $scope.ObtenerAsistencias();
+    $scope.ObtenerPermisos();
 
     $scope.verSolicitud = function(item){
         console.log(item);

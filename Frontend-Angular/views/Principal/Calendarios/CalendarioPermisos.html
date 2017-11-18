@@ -74,59 +74,26 @@
   </div>
   <div class="col-md-3 col-lg-3"></div>
   <div class="col-md-9 col-lg-9">
-    <table class="table">
-      <thead style="background-color: #334; color: #fff">
-        <tr>
-          <th scope="col"><input type="checkbox"></th>
-          <th scope="col">Descripci&oacute;n</th>
-          <th scope="col">Fecha de inicio</th>
-          <th scope="col">Fecha de finalizaci&oacute;n</th>
-          <th scope="col">N&uacute;mero de d&iacute;as</th>
-          <th scope="col">Tipo de permiso</th>
-          <th scope="col">Empleado</th>
-          <th scope="col">Responsable</th>
-          <th scope="col">Estado de permiso</th>
-        </tr>
-      </thead>
-      <tbody style="background-color: #fff">
-        <tr>
-          <th scope="row"><input type="checkbox"></th>
-          <td>Permiso por Incapacidad</td>
-          <td>12/5/2017</td>
-          <td>13/5/2017</td>
-          <td>1</td>
-          <td>Enfermedad</td>
-          <td>Cesar Barahona</td>
-          <td>Miguel Sauceda</td>
-          <td>Aprobado</td>
-        </tr>
-        <tr>
-          <th scope="row"><input type="checkbox"></th>
-          <td>Permiso de ausencia</td>
-          <td>12/5/2017</td>
-          <td>16/5/2017</td>
-          <td>4</td>
-          <td>Por dia</td>
-          <td>Cesar Figueroa</td>
-          <td>Eduardo Gross</td>
-          <td>En revision</td>
-        </tr>
-        <tr>
-          <th scope="row"><input type="checkbox"></th>
-          <td>Permiso por Incapacidad</td>
-          <td>12/5/2017</td>
-          <td>13/5/2017</td>
-          <td>1</td>
-          <td>Enfermedad</td>
-          <td>Kristian Portillo</td>
-          <td>Karen Villalobos</td>
-          <td>Aprobado</td>
-        </tr>
-      </tbody>
-    </table>
-    <button class="btn btn-success">Guardar</button>
-    <button class="btn btn-info">Editar</button>
-    <button class="btn btn-danger">Eliminar</button>
+    <table id="dataPermisos" class="table">
+      <tr>
+        <th style="width: 10px">#Perm</th>
+        <th style="width: 10px">#Emp</th>
+        <th style="width: 180px">Nombre Empleado</th>
+        <th style="width: 180px">Tipo Permiso</th>
+        <th style="width: 100px">para Dia</th>
+        <th style="width: 500px">Descripcion</th>
+        <th style="width: 80px">Estado</th>
+      </tr>
+      <tr ng-repeat="permiso in historialPermisos | filter:buscarPermiso">
+        <td>{{permiso.codPermiso}}</td>
+        <td>{{permiso.codEmpleado}}</td>
+        <td>{{permiso.nombreEmpleado}}</td>
+        <td>{{permiso.tipoPermiso}}</td>
+        <td>{{permiso.dia}}</td>
+        <td>{{permiso.descripcion}}</td>
+        <td>{{permiso.estado}}</td>
+      </tr>
+    </table>   
   </div>
   <!-- /.col -->
 </div>
